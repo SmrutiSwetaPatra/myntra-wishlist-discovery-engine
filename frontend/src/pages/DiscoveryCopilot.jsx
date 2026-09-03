@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Box, Brain, ClipboardCheck, FileCheck, RefreshCw, Search, ShieldCheck, Sparkles, LayoutDashboard, Bot, Radar, FolderOpen, Settings } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://myntra-wishlist-discovery-engine-production-5a76.up.railway.app';
@@ -182,8 +183,21 @@ export default function DiscoveryCopilot() {
               </div>
               
               <div className="p-space-sm flex flex-col gap-space-md">
-                <div className="flex flex-col gap-space-sm text-on-surface text-[14px] leading-relaxed whitespace-pre-wrap">
-                  {synthesis}
+                <div className="flex flex-col gap-space-sm text-on-surface text-[14px] leading-relaxed">
+                  <ReactMarkdown
+                    components={{
+                      p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                      ul: ({node, ...props}) => <ul className="list-disc pl-5 mb-2 flex flex-col gap-1" {...props} />,
+                      ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-2 flex flex-col gap-1" {...props} />,
+                      li: ({node, ...props}) => <li className="pl-1" {...props} />,
+                      strong: ({node, ...props}) => <strong className="font-semibold text-slate-900" {...props} />,
+                      h1: ({node, ...props}) => <h1 className="text-lg font-bold mt-3 mb-2 text-slate-900" {...props} />,
+                      h2: ({node, ...props}) => <h2 className="text-[15px] font-bold mt-3 mb-2 text-slate-900" {...props} />,
+                      h3: ({node, ...props}) => <h3 className="text-[14px] font-bold mt-2 mb-1 text-slate-900" {...props} />
+                    }}
+                  >
+                    {synthesis}
+                  </ReactMarkdown>
                 </div>
               </div>
             </div>
