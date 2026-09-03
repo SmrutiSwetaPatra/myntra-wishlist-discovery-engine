@@ -73,15 +73,18 @@ export default function EvidenceExplorer() {
             isDirect: item.isDirect
           };
         });
-        const deduplicated = [];
-        const seenTexts = new Set();
-        for (const item of mapped) {
-          if (!seenTexts.has(item.text)) {
-            seenTexts.add(item.text);
-            deduplicated.push(item);
-          }
-        }
-        setAllEvidence(deduplicated);
+        
+        // Count occurrences of each text to identify multiple observations from the same conversation
+        const textCounts = {};
+        mapped.forEach(item => {
+          textCounts[item.text] = (textCounts[item.text] || 0) + 1;
+        });
+
+        mapped.forEach(item => {
+          item.observationCount = textCounts[item.text];
+        });
+
+        setAllEvidence(mapped);
       } catch (error) {
         console.error('Failed to fetch evidence:', error);
       } finally {
@@ -193,17 +196,17 @@ export default function EvidenceExplorer() {
               </div>
               <div>
                 <div className="text-[14px] text-on-surface font-semibold leading-snug">
-                  {loading ? 73 : totalCount} Established Pre-Purchase Records
+                  {loading ? 73 : totalCount} Established Observations
                 </div>
                 <div className="text-[12px] text-on-surface-variant mt-0.5">
-                  ({loading ? 6 : directCount} Direct Evidence, {loading ? 67 : indirectCount} Indirect Evidence)
+                  From {new Set(allEvidence.map(e => e.text)).size || 64} unique source conversations
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5 pt-0.5">
                 <div className="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex shadow-inner">
-                  <div className="bg-emerald-600 h-full transition-all duration-500" style={{width: `${directPct}%`}} title={`Direct: ${loading ? 6 : directCount} records (${directPct}%)`}></div>
-                  <div className="bg-primary h-full transition-all duration-500" style={{width: `${indirectPct}%`}} title={`Indirect: ${loading ? 67 : indirectCount} records (${indirectPct}%)`}></div>
+                  <div className="bg-emerald-600 h-full transition-all duration-500" style={{width: `${directPct}%`}} title={`Direct: ${loading ? 6 : directCount} observations (${directPct}%)`}></div>
+                  <div className="bg-primary h-full transition-all duration-500" style={{width: `${indirectPct}%`}} title={`Indirect: ${loading ? 67 : indirectCount} observations (${indirectPct}%)`}></div>
                 </div>
                 <div className="flex items-center justify-between text-on-surface-variant font-code-sm text-[11px]">
                   <div className="flex items-center gap-1.5">
@@ -287,7 +290,7 @@ export default function EvidenceExplorer() {
           </div>
 
           <div className="px-space-base py-space-sm flex items-center justify-between bg-surface">
-            <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{filteredEvidence.length}</strong> of <span className="font-code-sm text-[12px] font-semibold">{loading ? 73 : totalCount}</span> established records</span>
+            <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{filteredEvidence.length}</strong> of <span className="font-code-sm text-[12px] font-semibold">{loading ? 73 : totalCount}</span> established observations</span>
             <button onClick={resetFilters} className="text-[13px] text-primary font-semibold flex items-center gap-space-2xs active:opacity-75">
               <RefreshCw className="text-[14px]" />
               <span className="">Reset view</span>
@@ -298,7 +301,7 @@ export default function EvidenceExplorer() {
             {loading ? (
               <div className="py-space-xl flex flex-col items-center justify-center text-center text-on-surface-variant">
                 <RefreshCw className="text-[32px] mb-4 text-primary animate-spin" />
-                <span className="font-title text-[15px] font-semibold text-on-surface">Loading established records...</span>
+                <span className="font-title text-[15px] font-semibold text-on-surface">Loading established observations...</span>
               </div>
             ) : filteredEvidence.map((item) => {
               const IntentIcon = item.intentIcon;
@@ -313,6 +316,12 @@ export default function EvidenceExplorer() {
                       <span className="text-[12px] text-on-surface font-bold">{item.sourceLabel}</span>
                       <span className="w-1 h-1 rounded-full bg-outline"></span>
                       <span className="text-[12px] text-on-surface-variant font-medium">{item.stageLabel}</span>
+                      {item.observationCount > 1 && (
+                        <>
+                          <span className="w-1 h-1 rounded-full bg-outline"></span>
+                          <span className="text-[11px] text-tertiary font-medium bg-tertiary/10 px-1.5 py-0.5 rounded-sm">{item.observationCount} observations from this conversation</span>
+                        </>
+                      )}
                     </div>
                     <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-${colorClass}-100 text-${colorClass}-800 border border-${colorClass}-300 flex items-center gap-1`}>
                       <span className={`w-1.5 h-1.5 rounded-full bg-${colorClass}-600`}></span>
