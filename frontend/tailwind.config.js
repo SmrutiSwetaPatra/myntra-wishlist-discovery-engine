@@ -92,18 +92,18 @@ export default {
         "headline-sm": ["Plus Jakarta Sans", "sans-serif"]
       },
       fontSize: {
-        "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.005em", "fontWeight": "500" }],
-        "code-sm": ["0.75rem", { "lineHeight": "1.25rem", "fontWeight": "400" }],
-        "title": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.005em", "fontWeight": "600" }],
-        "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }],
-        "headline-lg": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+        "label-md": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "0.005em", "fontWeight": "500" }],
+        "code-sm": ["0.6875rem", { "lineHeight": "1rem", "fontWeight": "400" }],
+        "title": ["1rem", { "lineHeight": "1.375rem", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+        "body-md": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "400" }],
+        "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" }],
         "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }],
-        "body-lg": ["1rem", { "lineHeight": "1.625rem", "fontWeight": "400" }],
-        "display": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }],
-        "headline-md": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+        "body-lg": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }],
+        "display": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+        "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
         "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }],
-        "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "700" }],
-        "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+        "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+        "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }]
       }
     }
   },

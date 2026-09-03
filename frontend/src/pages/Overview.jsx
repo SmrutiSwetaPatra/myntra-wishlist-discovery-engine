@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { AlertTriangle, Archive, Bot, Brain, CheckCircle, ChevronRight, Database, FlaskConical, FolderOpen, Heart, LayoutDashboard, MessageSquare, Network, Radar, Settings, Tag, User } from 'lucide-react';
+
 
 export default function Overview() {
   return (
@@ -14,7 +17,7 @@ export default function Overview() {
 <span className="font-body-sm text-body-sm text-on-surface-variant">Research workspace for wishlist-to-purchase discovery</span>
 </div>
 <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-<span className="material-symbols-outlined text-on-primary text-[18px]">person</span>
+<User className="text-on-primary text-[18px]" />
 </div>
 </div>
 <div className="flex items-center justify-between pt-0.5 border-t border-surface-container/60">
@@ -50,21 +53,21 @@ export default function Overview() {
           </p>
 </div>
 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm pt-space-xs">
-<a className="h-10 px-space-md bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm transition-colors active:scale-[0.99]" data-path="discovery-copilot" href="#">
-<span className="material-symbols-outlined text-[18px]">smart_toy</span>
+<Link to="/copilot"  className="h-10 px-space-md bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm transition-colors active:scale-[0.99]"  >
+<Bot className="text-[18px]" />
 <span className="">Ask Discovery Copilot</span>
-</a>
-<a className="h-10 px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors active:scale-[0.99]" data-path="opportunity-radar" href="#">
-<span className="material-symbols-outlined text-[18px]">radar</span>
+</Link>
+<Link to="/radar"  className="h-10 px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors active:scale-[0.99]"  >
+<Radar className="text-[18px]" />
 <span className="">Explore Opportunity Radar</span>
-</a>
+</Link>
 </div>
 </div>
 
 <div className="flex flex-col gap-space-sm">
 <div className="flex items-center justify-between">
 <div className="flex items-center gap-space-xs">
-<span className="material-symbols-outlined text-primary text-[20px]">database</span>
+<Database className="text-primary text-[20px]" />
 <h3 className="font-title text-title text-on-surface">Discovery Engine Dataset</h3>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded text-right">
@@ -72,7 +75,7 @@ export default function Overview() {
           </span>
 </div>
 <div className="text-xs text-on-surface-variant -mt-1 flex items-center gap-1">
-<span className="material-symbols-outlined text-[15px] text-tertiary">science</span>
+<FlaskConical className="text-[15px] text-tertiary" />
 <span className="">Research corpus: Google Play · Apple App Store · YouTube</span>
 </div>
 
@@ -82,7 +85,7 @@ export default function Overview() {
 <div className="flex flex-col">
 <div className="flex items-center justify-between">
 <span className="font-label-sm text-label-sm text-on-surface-variant font-medium">Public conversations analyzed</span>
-<span className="material-symbols-outlined text-primary text-[18px]">forum</span>
+<MessageSquare className="text-primary text-[18px]" />
 </div>
 <div className="font-headline-md text-headline-md text-on-surface mt-space-xs font-bold">1,447</div>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Standardized multi-source public conversations</span>
@@ -161,33 +164,33 @@ export default function Overview() {
 </div>
 
 <div className="flex gap-space-xs overflow-x-auto pb-space-xs snap-x">
-<div className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60">
+<Link to="/evidence?stage=save" className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60 hover:border-primary/40 hover:bg-surface-container-low transition-colors">
 <span className="font-code-sm text-code-sm text-primary font-semibold">Gate 01</span>
 <span className="font-label-md text-label-md text-on-surface font-semibold">Save</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Intent anchor</span>
-</div>
-<div className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60">
+</Link>
+<Link to="/evidence?stage=revisit" className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60 hover:border-primary/40 hover:bg-surface-container-low transition-colors">
 <span className="font-code-sm text-code-sm text-primary font-semibold">Gate 02</span>
 <span className="font-label-md text-label-md text-on-surface font-semibold">Revisit</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Passive retrieval</span>
-</div>
-<div className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60">
+</Link>
+<Link to="/evidence?stage=evaluate" className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60 hover:border-primary/40 hover:bg-surface-container-low transition-colors">
 <span className="font-code-sm text-code-sm text-primary font-semibold">Gate 03</span>
 <span className="font-label-md text-label-md text-on-surface font-semibold">Evaluate</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Attribute scrutiny</span>
-</div>
-<div className="min-w-[155px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-secondary/30 bg-secondary-fixed/10">
+</Link>
+<Link to="/evidence?stage=uncertainty" className="min-w-[155px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-secondary/30 bg-secondary-fixed/10 hover:border-secondary/60 transition-colors">
 <span className="font-code-sm text-code-sm text-secondary font-semibold">Gate 04</span>
 <span className="font-label-md text-label-md text-on-surface font-semibold">Resolve Uncertainty</span>
 <span className="font-body-sm text-body-sm text-secondary font-medium">Critical drop-off</span>
-</div>
-<div className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60">
+</Link>
+<Link to="/evidence?stage=decide" className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60 hover:border-primary/40 hover:bg-surface-container-low transition-colors">
 <span className="font-code-sm text-code-sm text-primary font-semibold">Gate 05</span>
 <span className="font-label-md text-label-md text-on-surface font-semibold">Decide</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Trade-off balancing</span>
-</div>
-<div className="min-w-[140px] bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-1 shadow-sm snap-start shrink-0 border border-surface-container/60">
-<span className="font-code-sm text-code-sm text-primary font-semibold">Gate 06</span>
+</Link>
+<div className="min-w-[140px] bg-surface-container-lowest/50 rounded-lg p-space-sm flex flex-col gap-1 border border-surface-container/30 border-dashed snap-start shrink-0 opacity-70">
+<span className="font-code-sm text-code-sm text-tertiary font-semibold">Outcome</span>
 <span className="font-label-md text-label-md text-on-surface font-semibold">Purchase</span>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Cart transition</span>
 </div>
@@ -195,35 +198,35 @@ export default function Overview() {
 
 <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm border border-surface-container">
 <div className="flex items-center gap-space-xs">
-<span className="material-symbols-outlined text-primary text-[20px]">psychology</span>
+<Brain className="text-primary text-[20px]" />
 <span className="font-label-md text-label-md text-on-surface font-semibold">Four Product-Outcome Drivers</span>
 </div>
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs">
 <div className="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col border border-surface-container/60">
 <div className="flex items-center justify-between">
 <span className="font-label-sm text-label-sm text-primary font-semibold">Driver: Want</span>
-<span className="material-symbols-outlined text-on-surface-variant text-[18px]">favorite</span>
+<Heart className="text-on-surface-variant text-[18px]" />
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Sustained consumer desire vs. momentary novelty or impulse.</p>
 </div>
 <div className="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col border border-surface-container/60">
 <div className="flex items-center justify-between">
 <span className="font-label-sm text-label-sm text-primary font-semibold">Driver: Confidence</span>
-<span className="material-symbols-outlined text-on-surface-variant text-[18px]">verified</span>
+<CheckCircle className="text-on-surface-variant text-[18px]" />
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Fit accuracy, measurement clarity, review reliability, and brand authenticity.</p>
 </div>
 <div className="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col border border-surface-container/60">
 <div className="flex items-center justify-between">
 <span className="font-label-sm text-label-sm text-primary font-semibold">Driver: Value</span>
-<span className="material-symbols-outlined text-on-surface-variant text-[18px]">sell</span>
+<Tag className="text-on-surface-variant text-[18px]" />
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Price volatility, discount transparency, coupon terms, and catalog alternatives.</p>
 </div>
 <div className="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col border border-surface-container/60">
 <div className="flex items-center justify-between">
 <span className="font-label-sm text-label-sm text-primary font-semibold">Driver: Availability</span>
-<span className="material-symbols-outlined text-on-surface-variant text-[18px]">inventory_2</span>
+<Archive className="text-on-surface-variant text-[18px]" />
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Active inventory, size run stability, delivery timelines, and exchange confidence.</p>
 </div>
@@ -322,22 +325,22 @@ export default function Overview() {
 
 <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs border border-secondary/20 shadow-sm">
 <div className="flex items-center gap-space-xs">
-<span className="material-symbols-outlined text-secondary text-[20px]">warning</span>
+<AlertTriangle className="text-secondary text-[20px]" />
 <h4 className="font-label-md text-label-md text-on-surface font-semibold">Research Limitation</h4>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Public conversation evidence is directional and may not represent the full Myntra user population. Evidence volume does not establish business impact or causality. Opportunity areas require primary research and experimentation before prioritization.</p>
 <div className="flex items-center justify-between pt-space-xs border-t border-surface-container/60 mt-1">
 <span className="font-code-sm text-code-sm text-tertiary">Grade: Directional Synthesis</span>
-<a className="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-0.5 font-medium" data-path="evidence-explorer" href="#">
+<Link to="/evidence"  className="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-0.5 font-medium"  >
 <span className="">Inspect Evidence Records</span>
-<span className="material-symbols-outlined text-[14px]">chevron_right</span>
-</a>
+<ChevronRight className="text-[14px]" />
+</Link>
 </div>
 </div>
 
 <div className="bg-surface-container-lowest rounded-xl p-space-md flex flex-col gap-2.5 shadow-sm border border-surface-container/70">
 <div className="flex items-center gap-1.5">
-<span className="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+<Network className="text-primary text-[18px]" />
 <h4 className="font-label-md text-label-md text-on-surface font-semibold">Research Progression Chain</h4>
 </div>
 <div className="flex flex-col gap-1.5 pt-1">
@@ -413,26 +416,26 @@ export default function Overview() {
 
 <nav className="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl border-t border-surface-container shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold">
 <div className="flex items-center justify-around h-16 px-space-xs">
-<a aria-current="page" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 transition-colors text-primary font-semibold" data-path="overview" href="#">
-<span className="material-symbols-outlined text-[20px]">dashboard</span>
+<Link to="/"  aria-current="page" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 transition-colors text-primary font-semibold"  >
+<LayoutDashboard className="text-[20px]" />
 <span className="font-label-sm text-label-sm">Overview</span>
-</a>
-<a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="discovery-copilot" href="#">
-<span className="material-symbols-outlined text-[20px]">smart_toy</span>
+</Link>
+<Link to="/copilot"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  >
+<Bot className="text-[20px]" />
 <span className="font-label-sm text-label-sm">Copilot</span>
-</a>
-<a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="opportunity-radar" href="#">
-<span className="material-symbols-outlined text-[20px]">radar</span>
+</Link>
+<Link to="/radar"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  >
+<Radar className="text-[20px]" />
 <span className="font-label-sm text-label-sm">Radar</span>
-</a>
-<a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="evidence-explorer" href="#">
-<span className="material-symbols-outlined text-[20px]">folder_data</span>
+</Link>
+<Link to="/evidence"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  >
+<FolderOpen className="text-[20px]" />
 <span className="font-label-sm text-label-sm">Evidence</span>
-</a>
-<a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#">
-<span className="material-symbols-outlined text-[20px]">settings</span>
+</Link>
+<Link to="/settings"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  >
+<Settings className="text-[20px]" />
 <span className="font-label-sm text-label-sm">Settings</span>
-</a>
+</Link>
 </div>
 </nav>
     </>

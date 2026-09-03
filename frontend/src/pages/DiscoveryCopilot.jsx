@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Box, Brain, ClipboardCheck, FileCheck, RefreshCw, Search, ShieldCheck, Sparkles, LayoutDashboard, Bot, Radar, FolderOpen, Settings } from 'lucide-react';
+
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://myntra-wishlist-discovery-engine-production-5a76.up.railway.app';
 
 export default function DiscoveryCopilot() {
-  const [query, setQuery] = useState("What prevents wishlisted products from being purchased?");
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [synthesis, setSynthesis] = useState(null);
   const [evidenceList, setEvidenceList] = useState([]);
@@ -13,10 +16,10 @@ export default function DiscoveryCopilot() {
   const [sessionId] = useState(() => Math.random().toString(36).substring(2, 15));
 
   const suggestedPrompts = [
-    { text: "What prevents wishlisted products from being purchased?", icon: "psychology" },
-    { text: "Why do users save products but not buy them later?", icon: "help_outline" },
-    { text: "What do users need to know before buying a saved fashion product?", icon: "apparel" },
-    { text: "How do users compare shortlisted products?", icon: "compare" },
+    { text: "What prevents wishlisted products from being purchased?" },
+    { text: "Why do users save products but not buy them later?" },
+    { text: "What do users need to know before buying a saved fashion product?" },
+    { text: "How do users compare shortlisted products?" },
   ];
 
   const handleAsk = async () => {
@@ -80,24 +83,24 @@ export default function DiscoveryCopilot() {
         </div>
       </header>
 
-      <main className="flex flex-col relative w-full pt-28 pb-28 bg-surface min-h-screen">
-        <div className="flex flex-col w-full px-space-base gap-space-lg pb-space-xl">
+      <main className="flex flex-col relative w-full pt-24 pb-28 bg-surface min-h-screen">
+        <div className="flex flex-col w-full px-space-base gap-space-md pb-space-md">
           
-          <div className="flex flex-col gap-space-2xs">
+          <div className="flex flex-col gap-1">
             <div className="flex items-center gap-space-xs">
-              <span className="material-symbols-outlined text-primary text-[20px]" style={{fontVariationSettings: "'FILL' 1"}}>auto_awesome</span>
-              <h1 className="font-headline-sm text-headline-sm text-on-surface tracking-tight">Discovery Copilot</h1>
+              <Sparkles className="text-primary text-[20px]" style={{fontVariationSettings: "'FILL' 1"}} />
+              <h1 className="text-[22px] font-title text-on-surface tracking-tight font-bold">Discovery Copilot</h1>
             </div>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">Ask questions about what users say before they purchase.</p>
+            <p className="text-[13px] text-on-surface-variant">Ask questions about what users say before they purchase.</p>
           </div>
 
-          <div className="flex flex-col gap-space-sm bg-surface-container-lowest p-space-base rounded-xl shadow-sm border border-outline-variant/30">
+          <div className="flex flex-col gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border border-outline-variant/30">
             <div className="relative flex items-center">
-              <span className="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[20px] pointer-events-none">search</span>
+              <Search className="absolute left-space-md text-on-surface-variant text-[18px] pointer-events-none" />
               <input 
-                className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-10 pr-space-base py-space-sm rounded-lg placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" 
+                className="w-full bg-surface-container-low text-on-surface text-[14px] pl-10 pr-space-base py-2 rounded-lg placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" 
                 id="copilot-input" 
-                placeholder="Ask what users need before buying a saved item..." 
+                placeholder="Ask a question about pre-purchase behavior..." 
                 type="text" 
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -106,39 +109,39 @@ export default function DiscoveryCopilot() {
             </div>
             <div className="flex items-center justify-between gap-space-sm">
               <div className="flex items-center gap-space-xs text-on-surface-variant">
-                <span className="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
-                <span className="font-label-sm text-label-sm">Grounded Synthesis</span>
+                <ShieldCheck className="text-[14px] text-secondary" />
+                <span className="text-[12px] font-medium">Grounded Synthesis</span>
               </div>
               <button 
                 onClick={handleAsk}
                 disabled={loading}
-                className="bg-primary disabled:opacity-50 hover:bg-primary-container active:scale-95 transition-all text-on-primary font-label-md text-label-md px-space-base py-space-xs rounded-lg flex items-center gap-space-xs shadow-sm shadow-primary/20"
+                className="bg-primary disabled:opacity-50 hover:bg-primary-container active:scale-95 transition-all text-on-primary text-[13px] font-semibold px-4 py-1.5 rounded-lg flex items-center gap-space-xs shadow-sm shadow-primary/20"
               >
                 {loading ? (
                   <>
-                    <span className="material-symbols-outlined text-[18px] animate-spin">refresh</span>
+                    <RefreshCw className="text-[18px] animate-spin" />
                     <span>Synthesizing...</span>
                   </>
                 ) : (
                   <>
                     <span>Ask Copilot</span>
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <ArrowRight className="text-[18px]" />
                   </>
                 )}
               </button>
             </div>
 
             <div className="flex flex-col gap-space-xs pt-space-xs border-t border-outline-variant/20">
-              <span className="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider font-medium">Suggested Exploration Prompts</span>
-              <div className="flex flex-col gap-1.5" id="prompt-chips">
+              <span className="text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold">Suggested Exploration Prompts</span>
+              <div className="flex flex-col gap-1" id="prompt-chips">
                 {suggestedPrompts.map((prompt, idx) => (
                   <button 
                     key={idx}
                     onClick={() => setQuery(prompt.text)}
-                    className={`prompt-pill text-left transition-colors font-label-sm text-label-sm px-space-sm py-2 rounded-lg flex items-center gap-2 ${query === prompt.text ? 'bg-surface-container-high text-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-primary'}`} 
+                    className={`prompt-pill text-left transition-colors text-[13px] px-2.5 py-1.5 rounded-lg flex items-center gap-2 ${query === prompt.text ? 'bg-surface-container-high text-primary font-medium' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-primary'}`} 
                     type="button"
                   >
-                    <span className="material-symbols-outlined text-[16px] shrink-0 text-primary">{prompt.icon}</span>
+                    <Box className="text-[14px] shrink-0 text-primary" />
                     <span className="leading-snug">{prompt.text}</span>
                   </button>
                 ))}
@@ -147,38 +150,39 @@ export default function DiscoveryCopilot() {
           </div>
 
           <div className="flex items-start gap-space-xs bg-surface-container p-space-sm rounded-lg border border-outline-variant/30">
-            <span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">policy</span>
+            <FileCheck className="text-secondary text-[18px] shrink-0 mt-0.5" />
             <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
               <strong className="font-semibold text-on-surface">Strict Guardrail:</strong> Answers synthesized exclusively from retrieved public evidence (Google Play, Apple App Store, YouTube). Public conversation evidence is directional and should not be generalized to the wider user population without primary validation.
             </p>
           </div>
 
           {error && (
-            <div className="bg-red-50 text-red-800 p-4 rounded-lg font-body-sm">
-              {error}
+            <div className="bg-error-container text-on-error-container p-space-md rounded-xl shadow-sm border border-error/20 flex flex-col gap-space-2xs">
+              <span className="font-label-md text-label-md font-semibold">Synthesis Failed</span>
+              <p className="font-body-sm text-body-sm">{error}</p>
             </div>
           )}
 
           {synthesis && (
             <div className="flex flex-col bg-surface-container-lowest rounded-xl shadow-md overflow-hidden border border-outline-variant/30">
-              <div className="bg-primary p-space-base text-on-primary flex flex-col gap-space-2xs">
+              <div className="bg-primary p-space-sm text-on-primary flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-code-sm text-code-sm text-on-primary-container uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-[15px]">psychology</span>
+                  <span className="text-[11px] text-on-primary-container uppercase tracking-wider font-semibold flex items-center gap-1.5">
+                    <Brain className="text-[14px]" />
                     AI-GENERATED SYNTHESIS
                   </span>
-                  <span className="flex items-center gap-1.5 bg-surface-container-lowest/20 backdrop-blur-sm px-space-xs py-space-2xs rounded text-on-primary font-code-sm text-code-sm font-medium">
+                  <span className="flex items-center gap-1.5 bg-surface-container-lowest/20 backdrop-blur-sm px-2 py-0.5 rounded text-on-primary text-[11px] font-medium">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
                     Grounded Output
                   </span>
                 </div>
-                <h2 className="font-headline-sm text-headline-sm text-on-primary font-semibold leading-snug">
+                <h2 className="text-[16px] text-on-primary font-semibold leading-snug">
                   “{query}”
                 </h2>
               </div>
               
-              <div className="p-space-base flex flex-col gap-space-md">
-                <div className="flex flex-col gap-space-sm text-on-surface font-body-md text-body-md leading-relaxed whitespace-pre-wrap">
+              <div className="p-space-sm flex flex-col gap-space-md">
+                <div className="flex flex-col gap-space-sm text-on-surface text-[14px] leading-relaxed whitespace-pre-wrap">
                   {synthesis}
                 </div>
               </div>
@@ -189,10 +193,10 @@ export default function DiscoveryCopilot() {
             <div className="flex flex-col gap-space-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-space-xs">
-                  <span className="material-symbols-outlined text-primary text-[20px]">fact_check</span>
-                  <h2 className="font-title text-title text-on-surface">Supporting Ground Truth</h2>
+                  <ClipboardCheck className="text-primary text-[18px]" />
+                  <h2 className="font-title text-[16px] text-on-surface">Supporting Ground Truth</h2>
                 </div>
-                <span className="font-code-sm text-code-sm text-on-surface-variant font-medium">{evidenceList.length} representative records shown</span>
+                <span className="text-[11px] text-on-surface-variant font-medium">{evidenceList.length} representative records shown</span>
               </div>
 
               <div className="flex flex-col gap-space-sm">
@@ -201,30 +205,30 @@ export default function DiscoveryCopilot() {
                   const colorClass = isDirect ? 'emerald' : 'purple';
                   
                   return (
-                    <div key={idx} className="flex flex-col bg-surface-container-lowest p-space-base rounded-xl shadow-sm gap-space-sm border border-outline-variant/20">
+                    <div key={idx} className="flex flex-col bg-surface-container-lowest p-space-sm rounded-xl shadow-sm gap-space-sm border border-outline-variant/20">
                       <div className="flex items-start justify-between gap-space-xs">
                         <div className="flex items-center gap-space-xs">
-                          <span className="material-symbols-outlined text-primary text-[20px] capitalize">{evidence.source?.includes('youtube') ? 'smart_display' : evidence.source?.includes('apple') ? 'phone_iphone' : 'play_circle'}</span>
-                          <span className="font-title text-title text-on-surface font-semibold capitalize">{evidence.source}</span>
+                          <Box className="text-primary text-[16px] capitalize" />
+                          <span className="font-title text-[14px] text-on-surface font-semibold capitalize">{evidence.source}</span>
                         </div>
-                        <span className={`px-space-xs py-space-2xs rounded bg-${colorClass}-100 text-${colorClass}-800 font-code-sm text-code-sm uppercase font-semibold border border-${colorClass}-300`}>
+                        <span className={`px-2 py-0.5 rounded bg-${colorClass}-100 text-${colorClass}-800 text-[10px] uppercase font-semibold border border-${colorClass}-300`}>
                           {evidence.type}
                         </span>
                       </div>
                       
-                      <div className="flex flex-wrap gap-space-xs items-center">
-                        <span className="bg-surface-container text-on-surface font-label-sm text-label-sm px-space-xs py-space-2xs rounded">
+                      <div className="flex flex-wrap gap-1.5 items-center">
+                        <span className="bg-surface-container text-on-surface text-[11px] px-2 py-0.5 rounded">
                           Stage: {evidence.stage}
                         </span>
-                        <span className="bg-surface-container-high text-primary font-label-sm text-label-sm px-space-xs py-space-2xs rounded">
+                        <span className="bg-surface-container-high text-primary text-[11px] px-2 py-0.5 rounded">
                           Primary Barrier: {evidence.barrier}
                         </span>
-                        <span className="bg-surface-container-high text-secondary font-label-sm text-label-sm px-space-xs py-space-2xs rounded">
+                        <span className="bg-surface-container-high text-secondary text-[11px] px-2 py-0.5 rounded">
                           Confidence: {evidence.confidence}
                         </span>
                       </div>
                       
-                      <blockquote className={`font-body-md text-body-md text-on-surface-variant bg-surface-container-low p-space-sm rounded-lg italic leading-relaxed border-l-2 border-${colorClass}-500`}>
+                      <blockquote className={`text-[13px] text-on-surface-variant bg-surface-container-low p-space-sm rounded-lg italic leading-relaxed border-l-2 border-${colorClass}-500`}>
                         “{evidence.text}”
                       </blockquote>
                       <div className="flex items-center justify-between pt-space-2xs">
@@ -239,6 +243,31 @@ export default function DiscoveryCopilot() {
 
         </div>
       </main>
+
+      <nav className="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl border-t border-surface-container shadow-[0_-1px_8px_rgba(0,0,0,0.04)]">
+        <div className="flex items-center justify-around h-16 px-space-xs">
+          <Link to="/" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors">
+            <LayoutDashboard className="text-[20px]" />
+            <span className="font-label-sm text-label-sm">Overview</span>
+          </Link>
+          <Link to="/copilot" aria-current="page" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 transition-colors text-primary font-semibold">
+            <Bot className="text-[20px]" />
+            <span className="font-label-sm text-label-sm">Copilot</span>
+          </Link>
+          <Link to="/radar" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors">
+            <Radar className="text-[20px]" />
+            <span className="font-label-sm text-label-sm">Radar</span>
+          </Link>
+          <Link to="/evidence" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors">
+            <FolderOpen className="text-[20px]" />
+            <span className="font-label-sm text-label-sm">Evidence</span>
+          </Link>
+          <Link to="/settings" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors">
+            <Settings className="text-[20px]" />
+            <span className="font-label-sm text-label-sm">Settings</span>
+          </Link>
+        </div>
+      </nav>
     </>
   );
 }

@@ -1,14 +1,16 @@
 import React from 'react';
+import { ArrowLeft, BadgeDollarSign, Box, CheckCircle, ChevronRight, ClipboardCheck, Eye, FileCheck, FlaskConical, HelpCircle, Hourglass, Info, Lightbulb, MonitorPlay, Play, Smartphone, Ticket, TrendingUp, User } from 'lucide-react';
+
 
 export default function OpportunityDetail() {
   return (
     <>
-<header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-16 px-space-base flex items-center justify-between gap-space-sm"><div className="flex items-center gap-space-xs"><button className="min-h-[44px] min-w-[44px] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="history.back()"><span className="material-symbols-outlined text-[22px]">arrow_back</span></button><div className="flex flex-col"><span className="font-title text-title text-on-surface tracking-tight leading-tight line-clamp-1">Opportunity Detail</span><span className="font-code-sm text-code-sm text-on-surface-variant leading-none">PM Fellowship / Myntra Discovery</span></div></div><div className="flex items-center gap-space-xs"><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div className="flex flex-col w-full pb-28">
+<header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-16 px-space-base flex items-center justify-between gap-space-sm"><div className="flex items-center gap-space-xs"><button className="min-h-[44px] min-w-[44px] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="history.back()"><ArrowLeft className="text-[22px]" /></button><div className="flex flex-col"><span className="font-title text-title text-on-surface tracking-tight leading-tight line-clamp-1">Opportunity Detail</span><span className="font-code-sm text-code-sm text-on-surface-variant leading-none">PM Fellowship / Myntra Discovery</span></div></div><div className="flex items-center gap-space-xs"><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><User className="text-on-primary text-[18px]" /></div></div></div></header><main className="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div className="flex flex-col w-full pb-28">
 
 <section className="px-margin-mobile pt-space-md flex flex-col gap-space-xs">
 <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
 <span className="hover:text-primary transition-colors cursor-pointer">Opportunity Radar</span>
-<span className="material-symbols-outlined text-[14px]">chevron_right</span>
+<ChevronRight className="text-[14px]" />
 <span className="text-primary font-medium">Price / Value</span>
 </div>
 <div className="flex items-start justify-between gap-space-sm mt-space-xs">
@@ -27,7 +29,7 @@ export default function OpportunityDetail() {
 
 <section className="px-margin-mobile mt-space-lg flex flex-col gap-space-md">
 <div className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[22px]">visibility</span>
+<Eye className="text-primary text-[22px]" />
 <h2 className="font-title text-title text-on-surface font-bold">What We Observed</h2>
 </div>
 
@@ -65,17 +67,17 @@ export default function OpportunityDetail() {
 
 <div className="flex items-center gap-2 flex-wrap pt-0.5">
 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm">
-<span className="material-symbols-outlined text-[16px] text-primary">play_arrow</span>
+<Play className="text-[16px] text-primary" />
 <span className="">Google Play</span>
 <span className="font-semibold text-primary ml-0.5">8</span>
 </div>
 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm">
-<span className="material-symbols-outlined text-[16px] text-secondary">phone_iphone</span>
+<Smartphone className="text-[16px] text-secondary" />
 <span className="">App Store</span>
 <span className="font-semibold text-secondary ml-0.5">7</span>
 </div>
 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm">
-<span className="material-symbols-outlined text-[16px] text-error">smart_display</span>
+<MonitorPlay className="text-[16px] text-error" />
 <span className="">YouTube</span>
 <span className="font-semibold text-error ml-0.5">4</span>
 </div>
@@ -84,7 +86,7 @@ export default function OpportunityDetail() {
 
 <div className="bg-surface-container-lowest p-space-base rounded-xl border border-outline-variant/40 shadow-sm flex items-start gap-space-sm">
 <div className="w-7 h-7 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0 mt-0.5">
-<span className="material-symbols-outlined text-[17px]">insights</span>
+<TrendingUp className="text-[17px]" />
 </div>
 <div className="flex flex-col">
 <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Evidence Signal</span>
@@ -96,7 +98,7 @@ export default function OpportunityDetail() {
 <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold px-0.5">Observed Friction Patterns</span>
 <div className="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex items-start gap-space-sm">
 <div className="w-7 h-7 rounded-full bg-error-container text-on-error-container flex items-center justify-center shrink-0 mt-0.5">
-<span className="material-symbols-outlined text-[16px]">price_change</span>
+<BadgeDollarSign className="text-[16px]" />
 </div>
 <div className="flex flex-col">
 <span className="font-label-md text-label-md text-on-surface font-semibold">Sudden Price Shifts</span>
@@ -105,7 +107,7 @@ export default function OpportunityDetail() {
 </div>
 <div className="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex items-start gap-space-sm">
 <div className="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
-<span className="material-symbols-outlined text-[16px]">confirmation_number</span>
+<Ticket className="text-[16px]" />
 </div>
 <div className="flex flex-col">
 <span className="font-label-md text-label-md text-on-surface font-semibold">Banner vs. Cart Coupon Mismatch</span>
@@ -116,7 +118,7 @@ export default function OpportunityDetail() {
 </div>
 <div className="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex items-start gap-space-sm">
 <div className="w-7 h-7 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 mt-0.5">
-<span className="material-symbols-outlined text-[16px]">hourglass_empty</span>
+<Hourglass className="text-[16px]" />
 </div>
 <div className="flex flex-col">
 <span className="font-label-md text-label-md text-on-surface font-semibold">Price History Blind Spots</span>
@@ -131,7 +133,7 @@ export default function OpportunityDetail() {
 <section className="px-margin-mobile mt-space-lg flex flex-col gap-space-sm">
 <div className="flex items-center justify-between">
 <div className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<ClipboardCheck className="text-primary text-[20px]" />
 <h2 className="font-title text-title text-on-surface font-bold">Representative Evidence</h2>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant font-medium">3 Representative</span>
@@ -143,7 +145,7 @@ export default function OpportunityDetail() {
           Direct Evidence
         </span>
 <div className="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
-<span className="material-symbols-outlined text-[15px] text-primary">play_arrow</span>
+<Play className="text-[15px] text-primary" />
 <span className="">Google Play</span>
 </div>
 </div>
@@ -162,7 +164,7 @@ export default function OpportunityDetail() {
           Direct Evidence
         </span>
 <div className="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
-<span className="material-symbols-outlined text-[15px] text-secondary">phone_iphone</span>
+<Smartphone className="text-[15px] text-secondary" />
 <span className="">Apple App Store</span>
 </div>
 </div>
@@ -181,7 +183,7 @@ export default function OpportunityDetail() {
           Indirect Evidence
         </span>
 <div className="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
-<span className="material-symbols-outlined text-[15px] text-error">smart_display</span>
+<MonitorPlay className="text-[15px] text-error" />
 <span className="">YouTube</span>
 </div>
 </div>
@@ -199,14 +201,14 @@ export default function OpportunityDetail() {
 <div className="bg-surface-container p-space-base rounded-xl flex flex-col gap-space-xs shadow-sm relative overflow-hidden">
 <div className="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary-fixed-dim/40 pointer-events-none"></div>
 <div className="flex items-center gap-1.5 text-primary">
-<span className="material-symbols-outlined text-[18px]">verified</span>
+<CheckCircle className="text-[18px]" />
 <span className="font-label-sm text-label-sm uppercase tracking-wider font-bold">Unmet Need Statement</span>
 </div>
 <blockquote className="font-headline-sm text-headline-sm text-on-surface font-medium italic mt-1 leading-snug">
         “Shoppers may need immediate transparency into promotional eligibility, net checkout price, and reassurance against near-term price drops before committing to a purchase from their wishlist.”
       </blockquote>
 <div className="flex items-center gap-2 mt-2 pt-2 text-on-surface-variant font-label-sm text-label-sm">
-<span className="material-symbols-outlined text-[16px] text-secondary">lightbulb</span>
+<Lightbulb className="text-[16px] text-secondary" />
 <span className="">Anchor for Wishlist Intelligence Pricing Architecture</span>
 </div>
 </div>
@@ -228,7 +230,7 @@ export default function OpportunityDetail() {
 
 <section className="px-margin-mobile mt-space-lg flex flex-col gap-space-sm">
 <div className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[20px]">help_outline</span>
+<HelpCircle className="text-primary text-[20px]" />
 <h2 className="font-title text-title text-on-surface font-bold">Questions to Validate</h2>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant -mt-1">
@@ -285,11 +287,11 @@ export default function OpportunityDetail() {
 <section className="px-margin-mobile mt-space-lg mb-space-base">
 <div className="bg-surface-container-low rounded-xl p-space-base flex flex-col gap-space-md shadow-sm">
 <div className="flex items-center gap-2">
-<span className="material-symbols-outlined text-tertiary text-[20px]">policy</span>
+<FileCheck className="text-tertiary text-[20px]" />
 <h2 className="font-title text-title text-on-surface font-bold">Research Limitations &amp; Governance</h2>
 </div>
 <div className="bg-surface-container-lowest p-3.5 rounded-lg border border-outline-variant/30 flex items-start gap-2.5">
-<span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">info</span>
+<Info className="text-secondary text-[18px] shrink-0 mt-0.5" />
 <p className="font-body-sm text-body-sm text-on-surface leading-relaxed">
 <strong className="font-semibold text-on-surface">Research Limitation:</strong> Public conversation evidence is directional and may not represent the full user population. Evidence volume does not establish business impact or causality. Opportunity areas are hypotheses requiring primary research.
         </p>
@@ -302,14 +304,14 @@ export default function OpportunityDetail() {
 <div className="flex flex-col gap-2">
 <div className="flex items-center justify-between text-body-sm font-body-sm">
 <span className="text-on-surface flex items-center gap-1.5">
-<span className="material-symbols-outlined text-[16px] text-primary">record_voice_over</span>
+<Box className="text-[16px] text-primary" />
               Scheduled 1-on-1 discovery interviews (n=12)
             </span>
 <span className="font-code-sm text-code-sm text-on-surface-variant font-medium">Scheduled</span>
 </div>
 <div className="flex items-center justify-between text-body-sm font-body-sm">
 <span className="text-on-surface flex items-center gap-1.5">
-<span className="material-symbols-outlined text-[16px] text-primary">science</span>
+<FlaskConical className="text-[16px] text-primary" />
               A/B coupon transparency experiment
             </span>
 <span className="font-code-sm text-code-sm text-on-surface-variant font-medium">Backlog</span>
@@ -319,11 +321,11 @@ export default function OpportunityDetail() {
 
 <div className="pt-2 flex items-center gap-space-sm">
 <button className="flex-1 bg-primary text-on-primary font-label-md text-label-md py-2.5 px-space-base rounded-lg flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform">
-<span className="material-symbols-outlined text-[18px]">add_task</span>
+<Box className="text-[18px]" />
 <span className="">Draft User Interview Script</span>
 </button>
 <button className="bg-surface-container-highest text-on-surface-variant hover:text-on-surface p-2.5 rounded-lg flex items-center justify-center transition-colors">
-<span className="material-symbols-outlined text-[20px]">share</span>
+<Box className="text-[20px]" />
 </button>
 </div>
 </div>
