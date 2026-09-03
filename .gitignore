@@ -23,3 +23,5 @@ audit_results.json
 benchmark_results.json
 summary_output.json
 audit_dump.md
+
+!backend/data/myntra_copilot.db
