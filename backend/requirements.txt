@@ -6,7 +6,6 @@ aiosqlite
 pydantic
 pydantic-settings==2.7.1
 google-play-scraper==1.2.4
-app-store-scraper==0.3.5
 pytest
 pytest-asyncio
 httpx
