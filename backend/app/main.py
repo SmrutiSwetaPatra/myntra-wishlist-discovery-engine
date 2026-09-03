@@ -18,7 +18,7 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-origins = [origin.strip() for origin in settings.ALLOWED_ORIGINS.split(",")] if settings.ALLOWED_ORIGINS else []
+origins = [origin.strip() for origin in settings.ALLOWED_ORIGINS.split(",")] if settings.ALLOWED_ORIGINS else ["*"]
 
 app.add_middleware(
     CORSMiddleware,
