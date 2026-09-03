@@ -73,7 +73,15 @@ export default function EvidenceExplorer() {
             isDirect: item.isDirect
           };
         });
-        setAllEvidence(mapped);
+        const deduplicated = [];
+        const seenTexts = new Set();
+        for (const item of mapped) {
+          if (!seenTexts.has(item.text)) {
+            seenTexts.add(item.text);
+            deduplicated.push(item);
+          }
+        }
+        setAllEvidence(deduplicated);
       } catch (error) {
         console.error('Failed to fetch evidence:', error);
       } finally {
@@ -109,6 +117,12 @@ export default function EvidenceExplorer() {
     if (filters.stage !== 'all' && item.stage !== filters.stage) return false;
     return true;
   });
+
+  const directCount = allEvidence.filter(e => e.isDirect).length;
+  const indirectCount = allEvidence.filter(e => !e.isDirect).length;
+  const totalCount = allEvidence.length || 73;
+  const directPct = totalCount > 0 ? (directCount / totalCount * 100).toFixed(1) : 8.2;
+  const indirectPct = totalCount > 0 ? (indirectCount / totalCount * 100).toFixed(1) : 91.8;
 
   const Pill = ({ group, val, label }) => {
     const isActive = filters[group] === val;
@@ -150,7 +164,7 @@ export default function EvidenceExplorer() {
               <span className="text-[12px] text-on-surface-variant truncate font-medium">PM Fellowship / Myntra Discovery</span>
             </div>
             <div className="flex items-center gap-space-xs text-on-surface-variant shrink-0">
-              <span className="font-code-sm text-[11px] text-on-surface-variant"><span className="text-primary font-semibold">1,447</span> analyzed / <span className="text-secondary font-semibold">73</span> established</span>
+              <span className="font-code-sm text-[11px] text-on-surface-variant"><span className="text-primary font-semibold">1,447</span> analyzed / <span className="text-secondary font-semibold">{loading ? 73 : totalCount}</span> established</span>
             </div>
           </div>
         </div>
@@ -179,26 +193,26 @@ export default function EvidenceExplorer() {
               </div>
               <div>
                 <div className="text-[14px] text-on-surface font-semibold leading-snug">
-                  73 Established Pre-Purchase Records
+                  {loading ? 73 : totalCount} Established Pre-Purchase Records
                 </div>
                 <div className="text-[12px] text-on-surface-variant mt-0.5">
-                  (6 Direct Evidence, 67 Indirect Evidence)
+                  ({loading ? 6 : directCount} Direct Evidence, {loading ? 67 : indirectCount} Indirect Evidence)
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5 pt-0.5">
                 <div className="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex shadow-inner">
-                  <div className="bg-emerald-600 h-full transition-all duration-500" style={{width: "8.2%"}} title="Direct: 6 records (8.2%)"></div>
-                  <div className="bg-primary h-full transition-all duration-500" style={{width: "91.8%"}} title="Indirect: 67 records (91.8%)"></div>
+                  <div className="bg-emerald-600 h-full transition-all duration-500" style={{width: `${directPct}%`}} title={`Direct: ${loading ? 6 : directCount} records (${directPct}%)`}></div>
+                  <div className="bg-primary h-full transition-all duration-500" style={{width: `${indirectPct}%`}} title={`Indirect: ${loading ? 67 : indirectCount} records (${indirectPct}%)`}></div>
                 </div>
                 <div className="flex items-center justify-between text-on-surface-variant font-code-sm text-[11px]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
-                    <span className="font-medium text-slate-800">6 Direct Evidence (8.2%)</span>
+                    <span className="font-medium text-slate-800">{loading ? 6 : directCount} Direct Evidence ({directPct}%)</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    <span className="font-medium text-slate-800">67 Indirect Evidence (91.8%)</span>
+                    <span className="font-medium text-slate-800">{loading ? 67 : indirectCount} Indirect Evidence ({indirectPct}%)</span>
                   </div>
                 </div>
               </div>
@@ -273,7 +287,7 @@ export default function EvidenceExplorer() {
           </div>
 
           <div className="px-space-base py-space-sm flex items-center justify-between bg-surface">
-            <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{filteredEvidence.length}</strong> of <span className="font-code-sm text-[12px] font-semibold">73</span> established records</span>
+            <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{filteredEvidence.length}</strong> of <span className="font-code-sm text-[12px] font-semibold">{loading ? 73 : totalCount}</span> established records</span>
             <button onClick={resetFilters} className="text-[13px] text-primary font-semibold flex items-center gap-space-2xs active:opacity-75">
               <RefreshCw className="text-[14px]" />
               <span className="">Reset view</span>
