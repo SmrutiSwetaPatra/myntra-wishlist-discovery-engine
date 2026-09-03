@@ -1,0 +1,25 @@
+.env
+.env.*
+*.db
+*.sqlite
+*.sqlite3
+venv/
+.venv/
+**/venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+# Generated artifacts
+*.log
+*_output.txt
+*_results.txt
+*_log.txt
+audit_records.json
+audit_results.json
+benchmark_results.json
+summary_output.json
+audit_dump.md
