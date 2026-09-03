@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { AlertTriangle, ArrowRight, Bot, Brain, ChevronRight, Eye, FolderOpen, Info, LayoutDashboard, Lightbulb, LineChart, Radar, Settings, User } from 'lucide-react';
+
 
 export default function OpportunityRadar() {
   return (
     <>
-<header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-20 px-space-base flex flex-col justify-center gap-space-2xs"><div className="flex items-center justify-between"><div className="flex items-center gap-space-sm"><div className="flex flex-col"><div className="flex items-center gap-space-xs"><span className="font-title text-title text-on-surface tracking-tight leading-none">Wishlist Intelligence</span><span className="px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-code-sm text-code-sm uppercase font-medium">AI Engine</span></div><span className="font-body-sm text-body-sm text-on-surface-variant">AI Discovery Engine</span></div></div><div className="flex items-center gap-space-sm"><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div className="flex items-center justify-between"><div className="flex items-center gap-space-xs min-w-0"><span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span className="font-label-sm text-label-sm text-on-surface-variant truncate">PM Fellowship / Myntra Discovery</span></div><div className="flex items-center gap-space-xs text-on-surface-variant shrink-0"><span className="font-code-sm text-code-sm text-on-surface-variant"><span className="text-primary font-medium">1,447</span> analyzed / <span className="text-secondary font-medium">73</span> established</span></div></div></div></header><main className="flex flex-col relative w-full pt-20 pb-28 bg-surface min-h-screen"><div className="flex flex-col w-full">
+<header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-20 px-space-base flex flex-col justify-center gap-space-2xs"><div className="flex items-center justify-between"><div className="flex items-center gap-space-sm"><div className="flex flex-col"><div className="flex items-center gap-space-xs"><span className="font-title text-title text-on-surface tracking-tight leading-none">Wishlist Intelligence</span><span className="px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-code-sm text-code-sm uppercase font-medium">AI Engine</span></div><span className="font-body-sm text-body-sm text-on-surface-variant">AI Discovery Engine</span></div></div><div className="flex items-center gap-space-sm"><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><User className="text-on-primary text-[18px]" /></div></div></div><div className="flex items-center justify-between"><div className="flex items-center gap-space-xs min-w-0"><span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span className="font-label-sm text-label-sm text-on-surface-variant truncate">PM Fellowship / Myntra Discovery</span></div><div className="flex items-center gap-space-xs text-on-surface-variant shrink-0"><span className="font-code-sm text-code-sm text-on-surface-variant"><span className="text-primary font-medium">1,447</span> analyzed / <span className="text-secondary font-medium">73</span> established</span></div></div></div></header><main className="flex flex-col relative w-full pt-20 pb-28 bg-surface min-h-screen"><div className="flex flex-col w-full">
 
 <div className="px-space-base pt-space-base pb-space-sm flex flex-col gap-space-sm">
 <div className="flex flex-col gap-space-xs">
 <div className="flex items-center justify-between">
 <div className="flex items-center gap-space-xs">
-<span className="material-symbols-outlined text-primary text-[22px]">radar</span>
+<Radar className="text-primary text-[22px]" />
 <h1 className="font-headline-sm text-headline-sm text-on-surface">Opportunity Radar</h1>
 </div>
 </div>
@@ -23,7 +26,7 @@ export default function OpportunityRadar() {
 <div className="px-space-base pb-space-md">
 <div className="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-sm shadow-sm border border-outline-variant/30">
 <div className="p-space-2xs rounded bg-surface-container-highest text-secondary shrink-0 mt-0.5">
-<span className="material-symbols-outlined text-[16px]">info</span>
+<Info className="text-[16px]" />
 </div>
 <div className="flex flex-col gap-space-2xs">
 <span className="font-label-sm text-label-sm text-on-surface uppercase tracking-wide font-semibold">Methodology Guardrail</span>
@@ -43,79 +46,79 @@ export default function OpportunityRadar() {
 </div>
 <div className="flex items-center gap-space-xs">
 <button className="hidden px-space-xs py-space-2xs rounded bg-surface-container text-primary font-code-sm text-code-sm hover:bg-surface-container-high transition-colors" id="resetChartFilterBtn">Reset</button>
-<span className="material-symbols-outlined text-on-surface-variant text-[18px]">query_stats</span>
+<LineChart className="text-on-surface-variant text-[18px]" />
 </div>
 </div>
 
-<div className="relative w-full bg-surface-container-low/60 rounded-lg p-space-sm overflow-hidden select-none">
-<svg aria-label="Evidence Landscape Scatter Plot" className="w-full h-auto overflow-visible" role="img" viewBox="0 0 340 230">
+<div className="relative w-full max-w-3xl mx-auto aspect-[16/10] sm:aspect-[16/9] max-h-[400px] bg-surface-container-low/60 rounded-lg p-space-sm overflow-hidden select-none flex items-center justify-center">
+<svg aria-label="Evidence Landscape Scatter Plot" className="w-full h-full overflow-visible" preserveAspectRatio="xMidYMid meet" role="img" viewBox="0 0 360 230">
 
-<rect className="text-primary/5" fill="currentColor" height="90" rx="4" width="140" x="180" y="20" />
-<text className="fill-primary font-code-sm" style={{fontSize: "8px", fontWeight: "600"}} text-anchor="end" x="315" y="32">HIGH VOLUME / DIRECT</text>
-<rect className="text-on-surface-variant/5" fill="currentColor" height="85" rx="4" width="140" x="40" y="110" />
-<text className="fill-tertiary font-code-sm" style={{fontSize: "8px"}} text-anchor="start" x="45" y="190">LOWER VOLUME / INDIRECT</text>
+<rect className="text-primary/5" fill="currentColor" height="90" rx="4" width="150" x="190" y="20" />
+<text className="fill-primary" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="end" x="335" y="32">HIGH VOLUME / DIRECT</text>
+<rect className="text-on-surface-variant/5" fill="currentColor" height="85" rx="4" width="150" x="40" y="110" />
+<text className="fill-tertiary" style={{fontSize: "7px"}} textAnchor="start" x="45" y="190">LOWER VOLUME / INDIRECT</text>
 
 
-<line className="text-outline-variant/40" stroke="currentColor" stroke-dasharray="3,3" strokeWidth="1" x1="40" x2="320" y1="20" y2="20" />
-<line className="text-outline-variant/40" stroke="currentColor" stroke-dasharray="3,3" strokeWidth="1" x1="40" x2="320" y1="65" y2="65" />
-<line className="text-outline-variant/60" stroke="currentColor" stroke-dasharray="3,3" strokeWidth="1.5" x1="40" x2="320" y1="110" y2="110" />
-<line className="text-outline-variant/40" stroke="currentColor" stroke-dasharray="3,3" strokeWidth="1" x1="40" x2="320" y1="155" y2="155" />
-<line className="text-outline-variant" stroke="currentColor" strokeWidth="1.5" x1="40" x2="320" y1="195" y2="195" />
+<line className="text-outline-variant/40" stroke="currentColor" strokeDasharray="3,3" strokeWidth="1" x1="40" x2="340" y1="20" y2="20" />
+<line className="text-outline-variant/40" stroke="currentColor" strokeDasharray="3,3" strokeWidth="1" x1="40" x2="340" y1="65" y2="65" />
+<line className="text-outline-variant/60" stroke="currentColor" strokeDasharray="3,3" strokeWidth="1.5" x1="40" x2="340" y1="110" y2="110" />
+<line className="text-outline-variant/40" stroke="currentColor" strokeDasharray="3,3" strokeWidth="1" x1="40" x2="340" y1="155" y2="155" />
+<line className="text-outline-variant" stroke="currentColor" strokeWidth="1.5" x1="40" x2="340" y1="195" y2="195" />
 
 <line className="text-outline-variant" stroke="currentColor" strokeWidth="1.5" x1="40" x2="40" y1="20" y2="195" />
-<line className="text-outline-variant/60" stroke="currentColor" stroke-dasharray="3,3" strokeWidth="1.5" x1="180" x2="180" y1="20" y2="195" />
-<line className="text-outline-variant/40" stroke="currentColor" strokeWidth="1" x1="320" x2="320" y1="20" y2="195" />
+<line className="text-outline-variant/60" stroke="currentColor" strokeDasharray="3,3" strokeWidth="1.5" x1="190" x2="190" y1="20" y2="195" />
+<line className="text-outline-variant/40" stroke="currentColor" strokeWidth="1" x1="340" x2="340" y1="20" y2="195" />
 
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="end" x="32" y="24">4</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="end" x="32" y="69">3</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="end" x="32" y="114">2</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="end" x="32" y="159">1</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="end" x="32" y="198">0</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="middle" x="40" y="210">0</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="middle" x="180" y="210">12.5</text>
-<text className="fill-on-surface-variant font-code-sm" style={{fontSize: "9px"}} text-anchor="middle" x="320" y="210">25</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="end" x="35" y="23">4</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="end" x="35" y="68">3</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="end" x="35" y="113">2</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="end" x="35" y="158">1</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="end" x="35" y="198">0</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="middle" x="40" y="210">0</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="middle" x="190" y="210">12.5</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px"}} textAnchor="middle" x="340" y="210">25</text>
 
-<text className="fill-tertiary font-label-sm" style={{fontSize: "8.5px", letterSpacing: "0.04em"}} text-anchor="middle" x="180" y="224">TOTAL EVIDENCE VOLUME →</text>
-<text className="fill-tertiary font-label-sm" style={{fontSize: "8.5px", letterSpacing: "0.04em"}} text-anchor="middle" transform="rotate(-90)" x="-105" y="14">DIRECT EVIDENCE COUNT →</text>
+<text className="fill-tertiary" style={{fontSize: "7px", letterSpacing: "0.04em"}} textAnchor="middle" x="190" y="224">TOTAL EVIDENCE VOLUME →</text>
+<text className="fill-tertiary" style={{fontSize: "7px", letterSpacing: "0.04em"}} textAnchor="middle" transform="rotate(-90)" x="-105" y="14">DIRECT EVIDENCE COUNT →</text>
 
 
-<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95" id="bubble-other" onclick="focusCard('card-other')">
-<circle className="text-primary/20" cx="308" cy="97" fill="currentColor" r="16" />
-<circle className="text-primary" cx="308" cy="97" fill="currentColor" r="11" />
-<text className="font-code-sm font-semibold" fill="#ffffff" style={{fontSize: "8.5px"}} text-anchor="middle" x="308" y="100">24</text>
-<text className="fill-on-surface font-title" style={{fontSize: "8.5px", fontWeight: "600"}} text-anchor="middle" x="308" y="78">Other / Friction</text>
+<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95">
+<circle className="text-primary/20" cx="320" cy="85" fill="currentColor" r="15" />
+<circle className="text-primary" cx="320" cy="85" fill="currentColor" r="10" />
+<text fill="#ffffff" style={{fontSize: "8px", fontWeight: "600"}} textAnchor="middle" x="320" y="88.5">24</text>
+<text className="fill-on-surface" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="320" y="65">Other / Friction</text>
 </g>
 
 
-<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95" id="bubble-price" onclick="focusCard('card-price')">
-<circle className="text-secondary/20" cx="253" cy="97" fill="currentColor" r="15" />
-<circle className="text-secondary" cx="253" cy="97" fill="currentColor" r="10" />
-<text className="font-code-sm font-semibold" fill="#ffffff" style={{fontSize: "8.5px"}} text-anchor="middle" x="253" y="100">19</text>
-<text className="fill-secondary font-title" style={{fontSize: "8.5px", fontWeight: "600"}} text-anchor="middle" x="253" y="78">Price / Value</text>
+<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95">
+<circle className="text-secondary/20" cx="260" cy="85" fill="currentColor" r="14" />
+<circle className="text-secondary" cx="260" cy="85" fill="currentColor" r="9.5" />
+<text fill="#ffffff" style={{fontSize: "8px", fontWeight: "600"}} textAnchor="middle" x="260" y="88.5">19</text>
+<text className="fill-secondary" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="260" y="66">Price / Value</text>
 </g>
 
 
-<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95" id="bubble-quality" onclick="focusCard('card-quality')">
-<circle className="text-tertiary-container/40" cx="208" cy="186" fill="currentColor" r="13" />
-<circle className="text-tertiary-container" cx="208" cy="186" fill="currentColor" r="9" />
-<text className="font-code-sm font-semibold" fill="#ffffff" style={{fontSize: "8px"}} text-anchor="middle" x="208" y="189">15</text>
-<text className="fill-on-surface font-title" style={{fontSize: "8px", fontWeight: "600"}} text-anchor="middle" x="208" y="170">Quality / Auth.</text>
+<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95">
+<circle className="text-tertiary-container/40" cx="220" cy="180" fill="currentColor" r="12" />
+<circle className="text-tertiary-container" cx="220" cy="180" fill="currentColor" r="8" />
+<text fill="#ffffff" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="220" y="182.5">15</text>
+<text className="fill-on-surface" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="220" y="164">Quality / Auth.</text>
 </g>
 
 
-<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95" id="bubble-avail" onclick="focusCard('card-avail')">
-<circle className="text-tertiary/30" cx="152" cy="188" fill="currentColor" r="11" />
-<circle className="text-tertiary" cx="152" cy="188" fill="currentColor" r="8" />
-<text className="font-code-sm font-semibold" fill="#ffffff" style={{fontSize: "7.5px"}} text-anchor="middle" x="152" y="191">10</text>
-<text className="fill-on-surface-variant font-title" style={{fontSize: "8px", fontWeight: "600"}} text-anchor="middle" x="152" y="172">Availability / Stock</text>
+<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95">
+<circle className="text-tertiary/30" cx="160" cy="182" fill="currentColor" r="11" />
+<circle className="text-tertiary" cx="160" cy="182" fill="currentColor" r="7.5" />
+<text fill="#ffffff" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="160" y="184.5">10</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="160" y="167">Availability</text>
 </g>
 
 
-<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95" id="bubble-fit" onclick="focusCard('card-fit')">
-<circle className="text-outline-variant/50" cx="96" cy="189" fill="currentColor" r="9" />
-<circle className="text-outline" cx="96" cy="189" fill="currentColor" r="6.5" />
-<text className="font-code-sm font-semibold" fill="#ffffff" style={{fontSize: "7px"}} text-anchor="middle" x="96" y="192">5</text>
-<text className="fill-on-surface-variant font-title" style={{fontSize: "8px", fontWeight: "600"}} text-anchor="middle" x="96" y="174">Fit / Size</text>
+<g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95">
+<circle className="text-outline-variant/50" cx="100" cy="184" fill="currentColor" r="10" />
+<circle className="text-outline" cx="100" cy="184" fill="currentColor" r="7" />
+<text fill="#ffffff" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="100" y="186.5">5</text>
+<text className="fill-on-surface-variant" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="100" y="170">Fit / Size</text>
 </g>
 </svg>
 </div>
@@ -123,41 +126,41 @@ export default function OpportunityRadar() {
 <div className="flex flex-col gap-space-xs pt-space-xs">
 <div className="text-label-sm font-label-sm text-on-surface-variant pb-space-2xs uppercase tracking-wider">Exact Category Breakdown</div>
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs">
-<button className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left" onclick="focusCard('card-other')">
+<Link to="/evidence?area=other" className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left group">
 <div className="flex items-center gap-space-xs min-w-0">
-<span className="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
-<span className="font-label-sm text-label-sm text-on-surface truncate">Other / System Friction</span>
+<span className="w-2.5 h-2.5 rounded-full bg-primary shrink-0 group-hover:scale-110 transition-transform"></span>
+<span className="font-label-sm text-label-sm text-on-surface truncate group-hover:text-primary transition-colors">Other / System Friction</span>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">24 total (3 Direct, 21 Indirect)</span>
-</button>
-<button className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left" onclick="focusCard('card-price')">
+</Link>
+<Link to="/evidence?area=price" className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left group">
 <div className="flex items-center gap-space-xs min-w-0">
-<span className="w-2.5 h-2.5 rounded-full bg-secondary shrink-0"></span>
-<span className="font-label-sm text-label-sm text-on-surface truncate">Price / Value</span>
+<span className="w-2.5 h-2.5 rounded-full bg-secondary shrink-0 group-hover:scale-110 transition-transform"></span>
+<span className="font-label-sm text-label-sm text-on-surface truncate group-hover:text-secondary transition-colors">Price / Value</span>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">19 total (3 Direct, 16 Indirect)</span>
-</button>
-<button className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left" onclick="focusCard('card-quality')">
+</Link>
+<Link to="/evidence?area=quality" className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left group">
 <div className="flex items-center gap-space-xs min-w-0">
-<span className="w-2.5 h-2.5 rounded-full bg-tertiary-container shrink-0"></span>
-<span className="font-label-sm text-label-sm text-on-surface truncate">Quality / Authenticity</span>
+<span className="w-2.5 h-2.5 rounded-full bg-tertiary-container shrink-0 group-hover:scale-110 transition-transform"></span>
+<span className="font-label-sm text-label-sm text-on-surface truncate group-hover:text-tertiary-container transition-colors">Quality / Authenticity</span>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">15 total (0 Direct, 15 Indirect)</span>
-</button>
-<button className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left" onclick="focusCard('card-avail')">
+</Link>
+<Link to="/evidence?area=availability" className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left group">
 <div className="flex items-center gap-space-xs min-w-0">
-<span className="w-2.5 h-2.5 rounded-full bg-tertiary shrink-0"></span>
-<span className="font-label-sm text-label-sm text-on-surface truncate">Availability / Stock</span>
+<span className="w-2.5 h-2.5 rounded-full bg-tertiary shrink-0 group-hover:scale-110 transition-transform"></span>
+<span className="font-label-sm text-label-sm text-on-surface truncate group-hover:text-tertiary transition-colors">Availability / Stock</span>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">10 total (0 Direct, 10 Indirect)</span>
-</button>
-<button className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left sm:col-span-2" onclick="focusCard('card-fit')">
+</Link>
+<Link to="/evidence?area=fit" className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left sm:col-span-2 group">
 <div className="flex items-center gap-space-xs min-w-0">
-<span className="w-2.5 h-2.5 rounded-full bg-outline shrink-0"></span>
-<span className="font-label-sm text-label-sm text-on-surface truncate">Fit / Size</span>
+<span className="w-2.5 h-2.5 rounded-full bg-outline shrink-0 group-hover:scale-110 transition-transform"></span>
+<span className="font-label-sm text-label-sm text-on-surface truncate group-hover:text-outline transition-colors">Fit / Size</span>
 </div>
 <span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">5 total (0 Direct, 5 Indirect)</span>
-</button>
+</Link>
 </div>
 </div>
 </div>
@@ -192,17 +195,17 @@ export default function OpportunityRadar() {
 </div>
 <div className="p-space-sm rounded-lg bg-surface-container-high/60">
 <span className="font-label-sm text-label-sm text-secondary uppercase block font-semibold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">warning</span> Evidence Limitation
+<AlertTriangle className="text-[14px]" /> Evidence Limitation
           </span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">Mixed themes — requires sub-theme validation. Cannot be treated as a single root cause.</p>
 </div>
 </div>
 <div className="pt-space-xs flex items-center justify-between">
 <span className="font-code-sm text-code-sm text-tertiary">3 Direct Evidence, 21 Indirect</span>
-<button className="px-space-md py-space-xs rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-primary-container active:scale-95 transition-all shadow-sm">
+<Link to="/evidence" className="px-space-md py-space-xs rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-primary-container active:scale-95 transition-all shadow-sm">
 <span className="">Explore 24 Records</span>
-<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
+<ArrowRight className="text-[16px]" />
+</Link>
 </div>
 </div>
 
@@ -233,17 +236,17 @@ export default function OpportunityRadar() {
 </div>
 <div className="p-space-sm rounded-lg bg-surface-container-high/60">
 <span className="font-label-sm text-label-sm text-primary uppercase block font-semibold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">lightbulb</span> Hypothesis
+<Lightbulb className="text-[14px]" /> Hypothesis
           </span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">Improving price and promotion transparency may reduce hesitation during consideration (Hypothesis — requires primary research and experimentation before being treated as a conversion driver).</p>
 </div>
 </div>
 <div className="pt-space-xs flex items-center justify-between">
 <span className="font-code-sm text-code-sm text-tertiary">3 Direct Evidence, 16 Indirect</span>
-<button className="px-space-md py-space-xs rounded bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-secondary-container active:scale-95 transition-all shadow-sm">
+<Link to="/evidence" className="px-space-md py-space-xs rounded bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-secondary-container active:scale-95 transition-all shadow-sm">
 <span className="">View Opportunity Detail</span>
-<span className="material-symbols-outlined text-[16px]">visibility</span>
-</button>
+<Eye className="text-[16px]" />
+</Link>
 </div>
 </div>
 
@@ -269,17 +272,17 @@ export default function OpportunityRadar() {
 </div>
 <div className="p-space-sm rounded-lg bg-surface-container-high/60">
 <span className="font-label-sm text-label-sm text-primary uppercase block font-semibold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">lightbulb</span> Hypothesis
+<Lightbulb className="text-[14px]" /> Hypothesis
           </span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">Stronger product representation, quality signals, and authenticity reassurance may increase confidence in saved products (Hypothesis — requires primary research and experimentation before being treated as a conversion driver).</p>
 </div>
 </div>
 <div className="pt-space-xs flex items-center justify-between">
 <span className="font-code-sm text-code-sm text-tertiary">0 Direct Evidence, 15 Indirect</span>
-<button className="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-surface-container-high active:scale-95 transition-all">
+<Link to="/evidence" className="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-surface-container-high active:scale-95 transition-all">
 <span className="">Explore 15 Records</span>
-<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
+<ArrowRight className="text-[16px]" />
+</Link>
 </div>
 </div>
 
@@ -305,17 +308,17 @@ export default function OpportunityRadar() {
 </div>
 <div className="p-space-sm rounded-lg bg-surface-container-high/60">
 <span className="font-label-sm text-label-sm text-primary uppercase block font-semibold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">lightbulb</span> Hypothesis
+<Lightbulb className="text-[14px]" /> Hypothesis
           </span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">More reliable availability and delivery information may reduce abandonment during consideration (Hypothesis — requires primary research and experimentation before being treated as a conversion driver).</p>
 </div>
 </div>
 <div className="pt-space-xs flex items-center justify-between">
 <span className="font-code-sm text-code-sm text-tertiary">0 Direct Evidence, 10 Indirect</span>
-<button className="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-surface-container-high active:scale-95 transition-all">
+<Link to="/evidence" className="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-surface-container-high active:scale-95 transition-all">
 <span className="">Explore 10 Records</span>
-<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
+<ArrowRight className="text-[16px]" />
+</Link>
 </div>
 </div>
 
@@ -341,17 +344,17 @@ export default function OpportunityRadar() {
 </div>
 <div className="p-space-sm rounded-lg bg-surface-container-high/60">
 <span className="font-label-sm text-label-sm text-primary uppercase block font-semibold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">lightbulb</span> Hypothesis
+<Lightbulb className="text-[14px]" /> Hypothesis
           </span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">Better sizing confidence may reduce hesitation before purchasing saved apparel (Hypothesis — requires primary research and experimentation before being treated as a conversion driver).</p>
 </div>
 </div>
 <div className="pt-space-xs flex items-center justify-between">
 <span className="font-code-sm text-code-sm text-tertiary">0 Direct Evidence, 5 Indirect</span>
-<button className="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-surface-container-high active:scale-95 transition-all">
+<Link to="/evidence" className="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-surface-container-high active:scale-95 transition-all">
 <span className="">Explore 5 Records</span>
-<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
+<ArrowRight className="text-[16px]" />
+</Link>
 </div>
 </div>
 </div>
@@ -360,15 +363,15 @@ export default function OpportunityRadar() {
 <div className="p-space-md rounded-xl bg-surface-container flex items-center justify-between gap-space-sm flex-wrap">
 <div className="flex items-center gap-space-sm">
 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-<span className="material-symbols-outlined text-primary text-[18px]">psychology</span>
+<Brain className="text-primary text-[18px]" />
 </div>
 <span className="font-body-sm text-body-sm text-on-surface">Need deeper cluster breakdown? Run discovery copilot analysis.</span>
 </div>
-<span className="material-symbols-outlined text-on-surface-variant text-[20px] shrink-0">chevron_right</span>
+<ChevronRight className="text-on-surface-variant text-[20px] shrink-0" />
 </div>
 </div>
 </div>
-</main><nav className="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-medium"><div className="flex items-center justify-around h-16 px-space-xs"><a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview" href="#"><span className="material-symbols-outlined text-[20px]">dashboard</span><span className="font-label-sm text-label-sm">Overview</span></a><a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="discovery-copilot" href="#"><span className="material-symbols-outlined text-[20px]">smart_toy</span><span className="font-label-sm text-label-sm">Copilot</span></a><a aria-current="page" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 transition-colors text-primary font-medium" data-path="opportunity-radar" href="#"><span className="material-symbols-outlined text-[20px]">radar</span><span className="font-label-sm text-label-sm">Radar</span></a><a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="evidence-explorer" href="#"><span className="material-symbols-outlined text-[20px]">folder_data</span><span className="font-label-sm text-label-sm">Evidence</span></a><a className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span className="material-symbols-outlined text-[20px]">settings</span><span className="font-label-sm text-label-sm">Settings</span></a></div></nav>
+</main><nav className="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-medium"><div className="flex items-center justify-around h-16 px-space-xs"><Link to="/"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  ><LayoutDashboard className="text-[20px]" /><span className="font-label-sm text-label-sm">Overview</span></Link><Link to="/copilot"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  ><Bot className="text-[20px]" /><span className="font-label-sm text-label-sm">Copilot</span></Link><Link to="/radar"  aria-current="page" className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 transition-colors text-primary font-medium"  ><Radar className="text-[20px]" /><span className="font-label-sm text-label-sm">Radar</span></Link><Link to="/evidence"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  ><FolderOpen className="text-[20px]" /><span className="font-label-sm text-label-sm">Evidence</span></Link><Link to="/settings"  className="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors"  ><Settings className="text-[20px]" /><span className="font-label-sm text-label-sm">Settings</span></Link></div></nav>
     </>
   );
 }
