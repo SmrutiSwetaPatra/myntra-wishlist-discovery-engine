@@ -83,7 +83,7 @@ IMPORTANT RULES:
    - For decision-criteria questions (e.g. "How do users decide between two similar dresses in their wishlist?"), REQUIRE evidence that explicitly identifies the criteria or reasoning used to make the decision (e.g. price, fit, material).
 2. Do not accept evidence merely because it contains the same topic or keywords. The evidence MUST answer the user's actual question.
 3. For broad questions (e.g. "What are the biggest pre-purchase barriers?"), allow any evidence that presents a valid pre-purchase barrier.
-4. For questions like "Why do users save/wishlist products?", ACCEPT evidence about bookmarking, shortlisting, comparing, postponing purchases, or explicitly saving to track price/availability. REJECT generic price/quality/app complaints unless they explicitly connect to wishlist/saving behavior.
+4. For questions about why users wishlist or hesitate to purchase, ACCEPT evidence describing general pre-purchase barriers (price, quality, availability, fit) even if they do not explicitly use the word "wishlist", as the dataset context implies these are wishlist-to-purchase barriers.
 5. Do NOT use keyword matching alone. Evaluate semantic relevance to the question's intent.
 6. Do NOT attempt to answer the question yourself. Only evaluate the provided evidence text.
 

@@ -65,7 +65,7 @@ class NumPyVectorStore(VectorStoreBase):
                 "shopping_stage": a.shopping_stage,
                 "wishlist_behavior": a.wishlist_intent,
                 "uncertainty": a.uncertainty,
-                "behavior": a.behavior,
+                "behavior_type": a.behavior,
                 "comparison_behavior": a.comparison_behavior,
                 "external_research": a.external_research,
                 "unmet_need": a.unmet_need,

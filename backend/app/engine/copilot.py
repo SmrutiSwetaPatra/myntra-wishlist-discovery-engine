@@ -133,7 +133,13 @@ class DiscoveryCopilot:
                         logger.warning(f"Relevance gate failed for doc {doc.conversation_id}: {e}")
                     return None
                     
-                tasks = [check_relevance(d) for d in docs]
+                sem = asyncio.Semaphore(2)
+                
+                async def check_relevance_with_sem(doc):
+                    async with sem:
+                        return await check_relevance(doc)
+                        
+                tasks = [check_relevance_with_sem(d) for d in docs]
                 results = await asyncio.gather(*tasks)
                 relevant_docs = [r for r in results if r is not None]
                 
