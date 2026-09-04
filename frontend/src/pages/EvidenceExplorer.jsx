@@ -298,7 +298,7 @@ export default function EvidenceExplorer() {
             </div>
           </div>
 
-          <div className="px-space-base py-space-sm bg-surface-container-lowest border-b border-outline-variant/30 sticky top-[210px] z-30 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+          <div className="px-space-base py-space-sm bg-surface-container-lowest border-b border-outline-variant/30">
             <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{uniqueFilteredEvidence.length}</strong> unique source conversations <span className="font-code-sm text-[11px] text-tertiary">({filteredEvidence.length} established observations)</span></span>
             <button onClick={resetFilters} className="text-[13px] text-primary font-semibold flex items-center gap-space-2xs active:opacity-75">
               <RefreshCw className="text-[14px]" />

@@ -254,7 +254,7 @@ export default function DiscoveryCopilot() {
                         “{evidence.text}”
                       </blockquote>
                       <div className="flex items-center justify-between pt-space-2xs">
-                        <Link to={`/evidence?area=${evidence.area}`} className="font-code-sm text-code-sm text-primary font-medium hover:underline flex items-center gap-1">
+                        <Link to={`/evidence?area=${evidence.barrier ? (evidence.barrier.match(/^(price|quality|availability|fit|other)/i) ? evidence.barrier.match(/^(price|quality|availability|fit|other)/i)[0].toLowerCase() : 'all') : 'all'}`} className="font-code-sm text-code-sm text-primary font-medium hover:underline flex items-center gap-1">
                           View in Evidence Explorer <ArrowRight className="text-[14px]" />
                         </Link>
                       </div>

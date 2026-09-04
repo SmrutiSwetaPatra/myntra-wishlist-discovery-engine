@@ -9,9 +9,29 @@ setup_logging()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup logic here
+    from app.db.session import AsyncSessionLocal
+    from app.models.analyses import Analysis
+    from sqlalchemy import update
+    import uuid
+    import logging
+    
+    logger = logging.getLogger(__name__)
+    
+    # Run data-layer migration for invalid Google Pay record
+    try:
+        async with AsyncSessionLocal() as session:
+            bad_id = uuid.UUID('aef3490c-a41c-4356-81d4-34ab969f3422')
+            result = await session.execute(
+                update(Analysis)
+                .where(Analysis.id == bad_id)
+                .values(validation_status='irrelevant')
+            )
+            await session.commit()
+            logger.info("Migrated invalid google pay record to irrelevant")
+    except Exception as e:
+        logger.error(f"Migration failed: {e}")
+        
     yield
-    # Shutdown logic here
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
