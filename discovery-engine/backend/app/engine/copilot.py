@@ -124,8 +124,8 @@ class DiscoveryCopilot:
                     prompt = QUERY_RELEVANCE_PROMPT.format(query=user_query, evidence=doc.text)
                     try:
                         decision = await self.client.extract_structured(prompt, "", QueryRelevanceDecision)
-                        # We use 0.6 as a reasonable threshold for relevance
-                        if decision.relevant and decision.relevance_score >= 0.6:
+                        # We use 0.5 as a reasonable threshold for relevance
+                        if decision.relevant and decision.relevance_score >= 0.5:
                             # Pass reason into metadata for debugging/UI if needed
                             doc.metadata['relevance_reason'] = decision.reason
                             return doc
