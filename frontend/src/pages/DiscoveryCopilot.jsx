@@ -55,7 +55,8 @@ export default function DiscoveryCopilot() {
         type: e.type || (e.validation_status?.includes('direct') ? 'DIRECT EVIDENCE' : 'INDIRECT EVIDENCE'),
         confidence: e.confidence || 'Medium',
         stage: e.shopping_stage || 'Unknown',
-        barrier: e.primary_barrier_category || 'Unknown'
+        barrier: e.primary_barrier_category || 'Unknown',
+        area: e.primary_barrier_category ? String(e.primary_barrier_category).toLowerCase().split('/')[0].trim() : 'other'
       }));
       setEvidenceList(filteredEvidence);
     } catch (err) {
@@ -203,12 +204,19 @@ export default function DiscoveryCopilot() {
             </div>
           )}
 
+          {synthesis && evidenceList.length === 0 && (
+            <div className="flex items-center gap-space-xs text-on-surface-variant p-space-sm bg-surface-container-lowest border border-outline-variant/30 rounded-lg">
+              <ClipboardCheck className="text-[18px]" />
+              <span className="text-[13px]">No retrieved evidence</span>
+            </div>
+          )}
+
           {evidenceList.length > 0 && (
             <div className="flex flex-col gap-space-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-space-xs">
                   <ClipboardCheck className="text-primary text-[18px]" />
-                  <h2 className="font-title text-[16px] text-on-surface">Supporting Ground Truth</h2>
+                  <h2 className="font-title text-[16px] text-on-surface">Retrieved Evidence</h2>
                 </div>
                 <span className="text-[11px] text-on-surface-variant font-medium">{evidenceList.length} representative records shown</span>
               </div>
@@ -222,8 +230,8 @@ export default function DiscoveryCopilot() {
                     <div key={idx} className="flex flex-col bg-surface-container-lowest p-space-sm rounded-xl shadow-sm gap-space-sm border border-outline-variant/20">
                       <div className="flex items-start justify-between gap-space-xs">
                         <div className="flex items-center gap-space-xs">
-                          <Box className="text-primary text-[16px] capitalize" />
-                          <span className="font-title text-[14px] text-on-surface font-semibold capitalize">{evidence.source}</span>
+                          <span className="text-primary text-[14px] font-bold">[Evidence {idx + 1}]</span>
+                          <span className="font-title text-[14px] text-on-surface font-semibold capitalize ml-1">{evidence.source}</span>
                         </div>
                         <span className={`px-2 py-0.5 rounded bg-${colorClass}-100 text-${colorClass}-800 text-[10px] uppercase font-semibold border border-${colorClass}-300`}>
                           {evidence.type}
@@ -246,7 +254,9 @@ export default function DiscoveryCopilot() {
                         “{evidence.text}”
                       </blockquote>
                       <div className="flex items-center justify-between pt-space-2xs">
-                        <span className="font-code-sm text-code-sm text-on-surface-variant font-medium">Public Feedback</span>
+                        <Link to={`/evidence?area=${evidence.area}`} className="font-code-sm text-code-sm text-primary font-medium hover:underline flex items-center gap-1">
+                          View in Evidence Explorer <ArrowRight className="text-[14px]" />
+                        </Link>
                       </div>
                     </div>
                   );
