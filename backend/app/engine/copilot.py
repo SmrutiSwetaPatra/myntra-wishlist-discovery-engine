@@ -17,6 +17,7 @@ class DiscoveryCopilot:
         self.quant_engine = QuantitativeEngine()
         self.client = GeminiClient()
         self.sessions: Dict[str, List[dict]] = {} # Simple in-memory history
+        self.synthesis_cache: Dict[str, CopilotResponse] = {} # Query + doc_ids cache
 
     async def initialize(self, session):
         await self.retriever.load(session)
@@ -54,7 +55,20 @@ class DiscoveryCopilot:
     async def query(self, user_query: str, session_id: str = "default", require_validated_only: bool = False) -> CopilotResponse:
         try:
             # 1. Routing
-            plan = await self.router.route(user_query, require_validated_only)
+            try:
+                plan = await self.router.route(user_query, require_validated_only)
+            except Exception as e:
+                logger.warning(f"Router failed: {e}. Falling back to default plan.")
+                from app.engine.router import ExecutionPlan
+                plan = ExecutionPlan(
+                    is_quantitative=False,
+                    requires_cross_source=False,
+                    requires_segmentation=False,
+                    validation_status_filter=None,
+                    metadata_filters=None,
+                    semantic_query=user_query,
+                    insufficient_evidence_likely=False
+                )
             
             # Insufficient Evidence Mode (Routing level)
             if plan.insufficient_evidence_likely:
@@ -114,37 +128,8 @@ class DiscoveryCopilot:
                     seen.add(d.conversation_id)
             docs = unique_docs
 
-            # 2.5 Query Relevance Gate
-            if docs:
-                import asyncio
-                from app.engine.schemas import QueryRelevanceDecision
-                from app.engine.prompts import QUERY_RELEVANCE_PROMPT
-                
-                async def check_relevance(doc):
-                    prompt = QUERY_RELEVANCE_PROMPT.format(query=user_query, evidence=doc.text)
-                    try:
-                        decision = await self.client.extract_structured(prompt, "", QueryRelevanceDecision)
-                        # We use 0.5 as a reasonable threshold for relevance
-                        if decision.relevant and decision.relevance_score >= 0.5:
-                            # Pass reason into metadata for debugging/UI if needed
-                            doc.metadata['relevance_reason'] = decision.reason
-                            return doc
-                    except Exception as e:
-                        logger.warning(f"Relevance gate failed for doc {doc.conversation_id}: {e}")
-                    return None
-                    
-                sem = asyncio.Semaphore(2)
-                
-                async def check_relevance_with_sem(doc):
-                    async with sem:
-                        return await check_relevance(doc)
-                        
-                tasks = [check_relevance_with_sem(d) for d in docs]
-                results = await asyncio.gather(*tasks)
-                relevant_docs = [r for r in results if r is not None]
-                
-                # Keep top 5 strictly relevant ones
-                docs = relevant_docs[:5]
+            # Keep top 5 strictly relevant ones from vector search directly
+            docs = docs[:5]
             
             # 2. Insufficient Evidence Mode (Retrieval level fallback)
             if not docs and not metrics:
@@ -159,6 +144,13 @@ class DiscoveryCopilot:
                     sources_used=[]
                 )
             
+            # Check Cache
+            doc_ids = ",".join(sorted([d.conversation_id for d in docs]))
+            cache_key = f"{user_query.strip().lower()}_{doc_ids}"
+            if cache_key in self.synthesis_cache:
+                logger.info(f"Returning cached synthesis for query: {user_query}")
+                return self.synthesis_cache[cache_key]
+
             # 3. Synthesis
             context = self._format_context(docs, metrics)
             history = self._format_history(session_id)
@@ -169,10 +161,21 @@ class DiscoveryCopilot:
                 question=user_query
             )
             
-            response = await self.client.extract_structured(prompt, "", CopilotResponse)
-            
-            # Override response fields based on deterministic execution
-            response.metrics = metrics
+            try:
+                response = await self.client.extract_structured(prompt, "", CopilotResponse)
+                response.metrics = metrics
+            except Exception as e:
+                logger.warning(f"Synthesis failed: {e}. Returning fallback response.")
+                response = CopilotResponse(
+                    answer="AI synthesis is temporarily unavailable due to API capacity limits. Please review the retrieved evidence below.",
+                    query_type="Semantic (Fallback)",
+                    confidence="low",
+                    insufficient_evidence=False,
+                    metrics=metrics,
+                    evidence_cards=[],
+                    limitations=["AI synthesis unavailable", "Showing raw retrieved evidence"],
+                    sources_used=[]
+                )
             
             # Build Evidence Cards
             cards = []
@@ -204,6 +207,9 @@ class DiscoveryCopilot:
                 self.sessions[session_id] = []
             self.sessions[session_id].append({"role": "user", "content": user_query})
             self.sessions[session_id].append({"role": "assistant", "content": response.answer})
+            
+            # Save to Cache
+            self.synthesis_cache[cache_key] = response
             
             return response
             
