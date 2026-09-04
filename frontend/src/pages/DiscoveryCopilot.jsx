@@ -49,11 +49,11 @@ export default function DiscoveryCopilot() {
       setSynthesis(data.answer);
       
       // Filter out Reddit and format evidence securely
-      const filteredEvidence = (data.evidence || []).filter(e => e.source?.toLowerCase() !== 'reddit').map(e => ({
+      const filteredEvidence = (data.evidence_cards || data.evidence || []).filter(e => e.source?.toLowerCase() !== 'reddit').map(e => ({
         source: e.source,
-        text: e.text || e.original_evidence_text || e.raw_content,
-        type: e.type || (e.validation_status?.includes('direct') ? 'DIRECT EVIDENCE' : 'INDIRECT EVIDENCE'),
-        confidence: e.confidence || 'Medium',
+        text: e.raw_text || e.text || e.original_evidence_text || e.raw_content,
+        type: (e.direct_indirect_classification === 'direct' || e.validation_status?.includes('direct')) ? 'DIRECT EVIDENCE' : 'INDIRECT EVIDENCE',
+        confidence: e.ai_confidence ? (e.ai_confidence > 0.8 ? 'High' : 'Medium') : (e.confidence || 'Medium'),
         stage: e.shopping_stage || 'Unknown',
         barrier: e.primary_barrier_category || 'Unknown',
         area: e.primary_barrier_category ? String(e.primary_barrier_category).toLowerCase().split('/')[0].trim() : 'other'
