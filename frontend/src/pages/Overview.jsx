@@ -27,7 +27,7 @@ export default function Overview() {
 </div>
 <div className="flex items-center gap-space-xs text-on-surface-variant shrink-0">
 <span className="font-code-sm text-code-sm text-on-surface-variant">
-<span className="text-primary font-semibold">1,447</span> analyzed / <span className="text-secondary font-semibold">73</span> established
+<span className="text-primary font-semibold">1,447</span> analyzed / <span className="text-secondary font-semibold">72</span> established
           </span>
 </div>
 </div>
@@ -116,7 +116,7 @@ export default function Overview() {
 <span className="font-label-sm text-label-sm text-secondary font-medium">Established pre-purchase evidence</span>
 <span className="px-space-xs py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm font-semibold">Verified Signals</span>
 </div>
-<div className="font-headline-md text-headline-md text-secondary mt-space-xs font-bold">73</div>
+<div className="font-headline-md text-headline-md text-secondary mt-space-xs font-bold">72</div>
 <span className="font-body-sm text-body-sm text-on-surface-variant">Pre-purchase barrier signals qualified</span>
 </div>
 <div className="mt-space-md flex flex-col gap-space-xs">
@@ -132,7 +132,7 @@ export default function Overview() {
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
 <span className="font-body-sm text-body-sm text-on-surface font-medium">Indirect Evidence</span>
 </div>
-<span className="font-code-sm text-code-sm text-on-surface font-semibold">67</span>
+<span className="font-code-sm text-code-sm text-on-surface font-semibold">66</span>
 </div>
 </div>
 </div>
@@ -143,11 +143,11 @@ export default function Overview() {
 <div className="grid grid-cols-3 gap-space-xs pt-space-2xs">
 <div className="bg-surface-container-low p-2 rounded flex flex-col">
 <span className="font-body-sm text-body-sm text-tertiary">Needs Validation</span>
-<span className="font-title text-title text-on-surface mt-0.5 font-bold">24</span>
+<span className="font-title text-title text-on-surface mt-0.5 font-bold">23</span>
 </div>
 <div className="bg-surface-container-low p-2 rounded flex flex-col">
 <span className="font-body-sm text-body-sm text-tertiary">Excluded</span>
-<span className="font-title text-title text-on-surface mt-0.5 font-bold">919</span>
+<span className="font-title text-title text-on-surface mt-0.5 font-bold">920</span>
 </div>
 <div className="bg-surface-container-low p-2 rounded flex flex-col">
 <span className="font-body-sm text-body-sm text-tertiary">Processing Error</span>
@@ -245,10 +245,10 @@ export default function Overview() {
 <div className="flex items-start justify-between gap-2">
 <div className="flex flex-col">
 <span className="font-label-md text-label-md text-on-surface font-semibold">Other / System Friction</span>
-<span className="font-code-sm text-code-sm text-on-surface-variant mt-0.5">3 Direct Evidence · 21 Indirect Evidence</span>
+<span className="font-code-sm text-code-sm text-on-surface-variant mt-0.5">3 Direct Evidence · 20 Indirect Evidence</span>
 </div>
 <div className="flex flex-col items-end shrink-0">
-<span className="font-code-sm text-code-sm text-primary font-bold">24 records</span>
+<span className="font-code-sm text-code-sm text-primary font-bold">23 records</span>
 <span className="px-2 py-0.5 mt-1 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">HETEROGENEOUS</span>
 </div>
 </div>
@@ -373,7 +373,7 @@ export default function Overview() {
 <span className="w-5 h-5 rounded-full bg-primary/10 text-primary font-code-sm text-[11px] flex items-center justify-center shrink-0 mt-0.5 font-semibold">4</span>
 <div>
 <span className="font-medium text-on-surface">Established Evidence:</span>
-<span className="text-on-surface-variant"> 73 records (6 Direct Evidence, 67 Indirect Evidence)</span>
+<span className="text-on-surface-variant"> 72 records (6 Direct Evidence, 66 Indirect Evidence)</span>
 </div>
 </div>
 

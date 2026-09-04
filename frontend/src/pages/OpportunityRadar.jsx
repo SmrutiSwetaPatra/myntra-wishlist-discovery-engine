@@ -6,7 +6,7 @@ import { AlertTriangle, ArrowRight, Bot, Brain, ChevronRight, Eye, FolderOpen, I
 export default function OpportunityRadar() {
   return (
     <>
-<header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-20 px-space-base flex flex-col justify-center gap-space-2xs"><div className="flex items-center justify-between"><div className="flex items-center gap-space-sm"><div className="flex flex-col"><div className="flex items-center gap-space-xs"><span className="font-title text-title text-on-surface tracking-tight leading-none">Wishlist Intelligence</span><span className="px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-code-sm text-code-sm uppercase font-medium">AI Engine</span></div><span className="font-body-sm text-body-sm text-on-surface-variant">AI Discovery Engine</span></div></div><div className="flex items-center gap-space-sm"><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><User className="text-on-primary text-[18px]" /></div></div></div><div className="flex items-center justify-between"><div className="flex items-center gap-space-xs min-w-0"><span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span className="font-label-sm text-label-sm text-on-surface-variant truncate">PM Fellowship / Myntra Discovery</span></div><div className="flex items-center gap-space-xs text-on-surface-variant shrink-0"><span className="font-code-sm text-code-sm text-on-surface-variant"><span className="text-primary font-medium">1,447</span> analyzed / <span className="text-secondary font-medium">73</span> established</span></div></div></div></header><main className="flex flex-col relative w-full pt-20 pb-28 bg-surface min-h-screen"><div className="flex flex-col w-full">
+<header className="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-20 px-space-base flex flex-col justify-center gap-space-2xs"><div className="flex items-center justify-between"><div className="flex items-center gap-space-sm"><div className="flex flex-col"><div className="flex items-center gap-space-xs"><span className="font-title text-title text-on-surface tracking-tight leading-none">Wishlist Intelligence</span><span className="px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-code-sm text-code-sm uppercase font-medium">AI Engine</span></div><span className="font-body-sm text-body-sm text-on-surface-variant">AI Discovery Engine</span></div></div><div className="flex items-center gap-space-sm"><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><User className="text-on-primary text-[18px]" /></div></div></div><div className="flex items-center justify-between"><div className="flex items-center gap-space-xs min-w-0"><span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span className="font-label-sm text-label-sm text-on-surface-variant truncate">PM Fellowship / Myntra Discovery</span></div><div className="flex items-center gap-space-xs text-on-surface-variant shrink-0"><span className="font-code-sm text-code-sm text-on-surface-variant"><span className="text-primary font-medium">1,447</span> analyzed / <span className="text-secondary font-medium">72</span> established</span></div></div></div></header><main className="flex flex-col relative w-full pt-20 pb-28 bg-surface min-h-screen"><div className="flex flex-col w-full">
 
 <div className="px-space-base pt-space-base pb-space-sm flex flex-col gap-space-sm">
 <div className="flex flex-col gap-space-xs">
@@ -17,7 +17,7 @@ export default function OpportunityRadar() {
 </div>
 </div>
 <div>
-<span className="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm font-medium tracking-tight">73 Established Records (6 Direct, 67 Indirect)</span>
+<span className="inline-flex items-center px-space-sm py-space-2xs rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm font-medium tracking-tight">72 Established Records (6 Direct, 66 Indirect)</span>
 </div>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant">Compare recurring opportunity areas across the established evidence base.</p>
@@ -85,7 +85,7 @@ export default function OpportunityRadar() {
 <g className="cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95">
 <circle className="text-primary/20" cx="320" cy="85" fill="currentColor" r="15" />
 <circle className="text-primary" cx="320" cy="85" fill="currentColor" r="10" />
-<text fill="#ffffff" style={{fontSize: "8px", fontWeight: "600"}} textAnchor="middle" x="320" y="88.5">24</text>
+<text fill="#ffffff" style={{fontSize: "8px", fontWeight: "600"}} textAnchor="middle" x="320" y="88.5">23</text>
 <text className="fill-on-surface" style={{fontSize: "7px", fontWeight: "600"}} textAnchor="middle" x="320" y="65">Other / Friction</text>
 </g>
 
@@ -131,7 +131,7 @@ export default function OpportunityRadar() {
 <span className="w-2.5 h-2.5 rounded-full bg-primary shrink-0 group-hover:scale-110 transition-transform"></span>
 <span className="font-label-sm text-label-sm text-on-surface truncate group-hover:text-primary transition-colors">Other / System Friction</span>
 </div>
-<span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">24 total (3 Direct, 21 Indirect)</span>
+<span className="font-code-sm text-code-sm text-on-surface-variant shrink-0 ml-space-xs">23 total (3 Direct, 20 Indirect)</span>
 </Link>
 <Link to="/evidence?area=price" className="flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-left group">
 <div className="flex items-center gap-space-xs min-w-0">
@@ -179,7 +179,7 @@ export default function OpportunityRadar() {
 <span className="w-2 h-2 rounded-full bg-primary shrink-0"></span>
 <span className="font-headline-sm text-headline-sm text-on-surface truncate">Other / System Friction</span>
 </div>
-<span className="font-code-sm text-code-sm text-on-surface-variant mt-space-2xs">24 Established Records (3 Direct, 21 Indirect)</span>
+<span className="font-code-sm text-code-sm text-on-surface-variant mt-space-2xs">23 Established Records (3 Direct, 20 Indirect)</span>
 </div>
 <span className="px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider shrink-0 font-medium">Heterogeneous</span>
 </div>
@@ -201,9 +201,9 @@ export default function OpportunityRadar() {
 </div>
 </div>
 <div className="pt-space-xs flex items-center justify-between">
-<span className="font-code-sm text-code-sm text-tertiary">3 Direct Evidence, 21 Indirect</span>
+<span className="font-code-sm text-code-sm text-tertiary">3 Direct Evidence, 20 Indirect</span>
 <Link to="/evidence" className="px-space-md py-space-xs rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-space-xs hover:bg-primary-container active:scale-95 transition-all shadow-sm">
-<span className="">Explore 24 Records</span>
+<span className="">Explore 23 Records</span>
 <ArrowRight className="text-[16px]" />
 </Link>
 </div>
