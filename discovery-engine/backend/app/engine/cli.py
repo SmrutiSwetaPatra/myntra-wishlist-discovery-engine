@@ -55,14 +55,14 @@ def run_cli():
 
     parser_analysis = subparsers.add_parser("run-analysis")
     parser_analysis.add_argument("--limit", type=int, default=1000)
-    parser_analysis.add_argument("--model", type=str, default="gemini-3.5-flash-lite")
+    parser_analysis.add_argument("--model", type=str, default="gemini-2.5-flash")
     parser_analysis.add_argument("--stage", type=str, help="Not fully implemented, runs all stages")
     parser_analysis.add_argument("--dry-run", action="store_true")
     parser_analysis.add_argument("--validation-sample", action="store_true")
 
     parser_agg = subparsers.add_parser("run-aggregation")
     parser_agg.add_argument("--dry-run", action="store_true")
-    parser_agg.add_argument("--model", type=str, default="gemini-3.5-flash-lite")
+    parser_agg.add_argument("--model", type=str, default="gemini-2.5-flash")
 
     args = parser.parse_args()
 

@@ -14,7 +14,7 @@ from app.engine.deep_analysis import DeepAnalyzer
 logger = logging.getLogger(__name__)
 
 class AIPipeline:
-    def __init__(self, db_session: AsyncSession, model_name: str = "gemini-3.5-flash-lite", dry_run: bool = False):
+    def __init__(self, db_session: AsyncSession, model_name: str = "gemini-2.5-flash", dry_run: bool = False):
         self.db = db_session
         self.model_name = model_name
         self.dry_run = dry_run
