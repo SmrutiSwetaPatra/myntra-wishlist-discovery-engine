@@ -123,7 +123,16 @@ export default function EvidenceExplorer() {
 
   const directCount = allEvidence.filter(e => e.isDirect).length;
   const indirectCount = allEvidence.filter(e => !e.isDirect).length;
-  const totalCount = allEvidence.length || 73;
+  const totalCount = allEvidence.length || 72;
+  
+  const uniqueFilteredEvidence = [];
+  const seenTexts = new Set();
+  filteredEvidence.forEach(item => {
+    if (!seenTexts.has(item.text)) {
+      seenTexts.add(item.text);
+      uniqueFilteredEvidence.push(item);
+    }
+  });
   const directPct = totalCount > 0 ? (directCount / totalCount * 100).toFixed(1) : 8.2;
   const indirectPct = totalCount > 0 ? (indirectCount / totalCount * 100).toFixed(1) : 91.8;
 
@@ -167,7 +176,7 @@ export default function EvidenceExplorer() {
               <span className="text-[12px] text-on-surface-variant truncate font-medium">PM Fellowship / Myntra Discovery</span>
             </div>
             <div className="flex items-center gap-space-xs text-on-surface-variant shrink-0">
-              <span className="font-code-sm text-[11px] text-on-surface-variant"><span className="text-primary font-semibold">1,447</span> analyzed / <span className="text-secondary font-semibold">{loading ? 73 : totalCount}</span> established</span>
+              <span className="font-code-sm text-[11px] text-on-surface-variant"><span className="text-primary font-semibold">1,447</span> analyzed / <span className="text-secondary font-semibold">{loading ? 72 : totalCount}</span> established</span>
             </div>
           </div>
         </div>
@@ -196,10 +205,10 @@ export default function EvidenceExplorer() {
               </div>
               <div>
                 <div className="text-[14px] text-on-surface font-semibold leading-snug">
-                  {loading ? 73 : totalCount} Established Observations
+                  {loading ? 72 : totalCount} Established Observations
                 </div>
                 <div className="text-[12px] text-on-surface-variant mt-0.5">
-                  From {new Set(allEvidence.map(e => e.text)).size || 64} unique source conversations
+                  From {new Set(allEvidence.map(e => e.text)).size || 63} unique source conversations
                 </div>
               </div>
 
@@ -289,8 +298,8 @@ export default function EvidenceExplorer() {
             </div>
           </div>
 
-          <div className="px-space-base py-space-sm flex items-center justify-between bg-surface">
-            <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{filteredEvidence.length}</strong> of <span className="font-code-sm text-[12px] font-semibold">{loading ? 73 : totalCount}</span> established observations</span>
+          <div className="px-space-base py-space-sm bg-surface-container-lowest border-b border-outline-variant/30 sticky top-[210px] z-30 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+            <span className="text-[13px] text-on-surface-variant">Showing <strong className="text-on-surface font-semibold">{uniqueFilteredEvidence.length}</strong> unique source conversations <span className="font-code-sm text-[11px] text-tertiary">({filteredEvidence.length} established observations)</span></span>
             <button onClick={resetFilters} className="text-[13px] text-primary font-semibold flex items-center gap-space-2xs active:opacity-75">
               <RefreshCw className="text-[14px]" />
               <span className="">Reset view</span>
@@ -303,7 +312,7 @@ export default function EvidenceExplorer() {
                 <RefreshCw className="text-[32px] mb-4 text-primary animate-spin" />
                 <span className="font-title text-[15px] font-semibold text-on-surface">Loading established observations...</span>
               </div>
-            ) : filteredEvidence.map((item) => {
+            ) : uniqueFilteredEvidence.map((item) => {
               const IntentIcon = item.intentIcon;
               const colorClass = item.isDirect ? 'emerald' : 'purple';
               return (
@@ -319,7 +328,7 @@ export default function EvidenceExplorer() {
                       {item.observationCount > 1 && (
                         <>
                           <span className="w-1 h-1 rounded-full bg-outline"></span>
-                          <span className="text-[11px] text-tertiary font-medium bg-tertiary/10 px-1.5 py-0.5 rounded-sm">{item.observationCount} observations from this conversation</span>
+                          <span className="text-[11px] text-tertiary font-medium bg-tertiary/10 px-1.5 py-0.5 rounded-sm">Multiple analyses from this conversation</span>
                         </>
                       )}
                     </div>
@@ -358,7 +367,7 @@ export default function EvidenceExplorer() {
               );
             })}
 
-            {!loading && filteredEvidence.length === 0 && (
+            {!loading && uniqueFilteredEvidence.length === 0 && (
               <div className="py-space-xl flex flex-col items-center justify-center text-center text-on-surface-variant">
                 <Box className="text-[40px] mb-2 opacity-50" />
                 <span className="font-title text-[16px] font-semibold text-on-surface">No evidence matches these filters</span>

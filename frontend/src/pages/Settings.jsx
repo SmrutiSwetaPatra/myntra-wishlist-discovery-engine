@@ -29,7 +29,7 @@ export default function Settings() {
               <span className="font-label-sm text-label-sm text-on-surface-variant truncate">PM Fellowship / Myntra Discovery</span>
             </div>
             <div className="flex items-center gap-space-xs text-on-surface-variant shrink-0">
-              <span className="font-code-sm text-code-sm text-on-surface-variant"><span className="text-primary font-medium">1,447</span> analyzed / <span className="text-secondary font-medium">73</span> established</span>
+              <span className="font-code-sm text-code-sm text-on-surface-variant"><span className="text-primary font-medium">1,447</span> analyzed / <span className="text-secondary font-medium">72</span> established</span>
             </div>
           </div>
         </div>
