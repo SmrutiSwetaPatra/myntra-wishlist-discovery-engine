@@ -49,7 +49,7 @@ async def test_gemini_client_429_retry(mock_sleep, mock_limiter):
     Test that GeminiClient properly parses Retry-After from a 429 APIError
     and waits before retrying.
     """
-    client = GeminiClient(model_name="gemini-2.5-flash")
+    client = GeminiClient(model_name="gemini-3.6-flash")
     
     # Mock the inner execution
     call_count = 0
@@ -96,7 +96,7 @@ async def test_gemini_client_429_default_retry(mock_sleep, mock_limiter):
     """
     Test that GeminiClient falls back to 60s sleep if it cannot parse retryDelay.
     """
-    client = GeminiClient(model_name="gemini-2.5-flash")
+    client = GeminiClient(model_name="gemini-3.6-flash")
     
     call_count = 0
     async def mock_execute(*args, **kwargs):

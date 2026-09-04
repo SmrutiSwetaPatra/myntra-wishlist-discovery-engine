@@ -19,7 +19,7 @@ class LLMError(Exception):
     pass
 
 class GeminiClient:
-    def __init__(self, model_name: str = "gemini-2.5-flash"):
+    def __init__(self, model_name: str = "gemini-3.6-flash"):
         self.api_key = settings.GEMINI_API_KEY
         if not self.api_key:
             logger.warning("GEMINI_API_KEY not found in environment, falling back to attempting direct client init which checks GOOGLE_API_KEY")
